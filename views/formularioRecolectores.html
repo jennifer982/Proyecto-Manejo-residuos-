@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    <link rel="stylesheet" href="../assets/css/registroRecolector.css" />
+    <title>Formulario de Recolectores</title>
+    <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-left">
+             <a href="../index.html" class="nav-link"><img src="../assets/img/HOME.svg" alt="Logo" width="20">  Inicio</a> 
+                <a href="../views/mapa.html" class="nav-link"><img src="../assets/img/MAPA.svg" alt="Logo" width="20">  Mapa</a>           
+                <a href="../views/reportar.html" class="nav-link"><img src="../assets/img/REPORTE.svg" alt="Logo" width="20">  Reportar</a>
+                
+
+        </div>
+        <div class="nav-right">
+            <a href="../views/iniciosesion.html" class="nav-link">Login</a>
+            <a href="../views/formulario.html" class="nav-link">Registro</a>
+        </div>
+    </div>
+</nav>
+
+<main class="login-wrapper">
+    <form id="Formulario" class="login-form" method="POST" enctype="multipart/form-data">
+        <div class="login-container">
+            <h2>Registro de Recolectores</h2>
+            
+            <div class="input-group">
+                <input type="text" id="nombre" name="nombre" required placeholder="Nombre">
+            </div>
+            <div class="input-group">
+                <input type="email" id="correo" name="correo" required placeholder="Correo">
+            </div>
+            <div class="input-group">
+                <input type="password" id="contrasena" name="contrasena" required placeholder="Contraseña">
+            </div>
+            <div class="input-group">
+                <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required placeholder="Confirmar contraseña">
+            </div>
+
+            <div class="pdf-grid-container">
+                <div class="campo">
+                    <h3>Licencia de prestador de servicios para el manejo residuos especiales</h3>
+                    <input type="file" name="pdf_licencia" accept=".pdf" required>
+                </div>
+                <div class="campo">
+                    <h3>Certificado de capacitación</h3>
+                    <input type="file" name="pdf_certificado" accept=".pdf" required>
+                </div>
+                <div class="campo">
+                    <h3>Copia del título del vehículo</h3>
+                    <input type="file" name="pdf_titulo" accept=".pdf" required>
+                </div>
+                <div class="campo">
+                    <h3>Copia de tarjeta de circulación</h3>
+                    <input type="file" name="pdf_tarjeta" accept=".pdf" required>
+                </div>
+                <div class="campo">
+                    <h3>Copia de la licencia del conductor</h3>
+                    <input type="file" name="pdf_licencia_conductor" accept=".pdf" required>
+                </div>
+            </div> <button type="submit">Enviar</button>
+            <div id="message" class="message"></div>
+            <div id="loading" class="loading">Procesando...</div>
+        </div>
+    </form>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/registrarRecolector.js"></script>
+<script src="../assets/js/navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Reportes</title>
+  <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/mapa.css" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/buscador.css" />
+  <link rel="stylesheet" href="../assets/css/navbar.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <img src="../assets/img/iconos/logo.svg" alt="Logo" width="32" class="nav-logo-img">
+        <div class="nav-left">
+        
+        <a href="../index.html" class="nav-link"><img src="../assets/img/HOME.svg" alt="Inicio" width="20"> Inicio</a>
+        
+        <a href="../views/mapa.html" class="nav-link"><img src="../assets/img/MAPA.svg" alt="Mapa" width="20"> Mapa</a>
+        
+        <a href="../views/reportar.html" class="nav-link"><img src="../assets/img/REPORTE.svg" alt="Reportar" width="20"> Reportar</a>
+      </div>
+      <div class="nav-right" id="nav-usuario">
+        <a href="../views/iniciosesion.html" class="nav-link">Login</a>
+        <a href="../views/formulario.html" class="nav-link">Registro</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="contenido-principal" class="layout-mapa">
+    <aside id="panel-lateral" class="panel-lateral">
+      <section id="seccion-buscador" class="buscador">
+        <h2>Buscar reporte</h2>
+        <div class="campo">
+          <label for="input-buscar">Colonia y Ciudad</label>
+          <div class="buscador-input-wrap">
+            <input type="text" id="input-buscar" class="buscador-input"
+              placeholder="Ej: Chapultepec, Tijuana"
+              oninput="filtrarSugerencias(this.value)" autocomplete="off" />
+          </div>
+          <div id="sugerencias" class="sugerencias" style="display:none;"></div>
+        </div>
+      </section>
+      <section id="seccion-filtros" class="filtros">
+        <h2>Filtrar reportes</h2>
+        <div class="campo">
+          <label for="filtro-tipo">Tipo de residuo</label>
+          <select id="filtro-tipo">
+            <option value="todos">Todos</option>
+            <option value="Concreto">Contreto</option>
+            <option value="Metales">Metales</option>
+            <option value="mamposteria">Mampostería</option>
+            <option value="Petreos">Pétreos</option>
+            <option value="Mezcla asfaltica">Mezcla asfáltica</option>
+            <option value="Excavacion">Excavacion</option>
+            <option value="Elementos prefabricados">Elementos prefabricados</option>
+            <option value="Otros residuos">Otros</option>
+          </select>
+        </div>
+        
+        <button class="boton boton-secundario" id="btn-aplicar-filtros">Aplicar filtros</button>
+      </section>
+      <section id="seccion-lista-reportes" class="lista-reportes">
+        <h2>Reportes activos</h2>
+        <div id="lista-reportes-container">
+          <p class="placeholder-texto">Cargando reportes...</p>
+        </div>
+      </section>
+    </aside>
+    <section id="seccion-mapa" class="seccion-mapa">
+      <div id="mapa-principal" class="mapa-principal"></div>
+    </section>
+  </main>
+
+  <script>
+    var mapa = L.map('mapa-principal').setView([32.5149, -117.0382], 12);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(mapa);
+
+    mapa.on('click', function(e) {
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+      L.popup()
+        .setLatLng(e.latlng)
+        .setContent(`
+          <div style="text-align:center; font-family: 'Quicksand', sans-serif;">
+            <p style="margin-bottom:8px; font-weight:600;">¿Reportar tiradero aquí?</p>
+            <button onclick="verificarSesionYReportar('reportar.html?lat=${lat}&lng=${lng}')"
+                    style="background:#5fe254; color:#093a27; border:none; padding:7px 16px; cursor:pointer; border-radius:20px; font-weight:700; font-family:'Quicksand',sans-serif;">
+              Sí, reportar
+            </button>
+          </div>
+        `)
+        .openOn(mapa);
+    });
+
+    var marcadoresActivos = [];
+
+    function cargarMarcadoresDesdeBD(tipo) {
+      var params = '';
+      if (tipo && tipo !== 'todos') params += '?tipo=' + tipo;
+      
+      fetch('../backend/getReportes.php' + params)
+        .then(function(response) { return response.json(); })
+        .then(function(reportes) {
+          var contenedor = document.getElementById('lista-reportes-container');
+          contenedor.innerHTML = '';
+          marcadoresActivos.forEach(function(m) { mapa.removeLayer(m); });
+          marcadoresActivos = [];
+
+          if (!reportes || reportes.length === 0) {
+            contenedor.innerHTML = '<p class="placeholder-texto">No hay reportes disponibles.</p>';
+            return;
+          }
+
+          reportes.forEach(function(reporte) {
+            if (reporte.latitud && reporte.longitud) {
+              var iconoPersonalizado = L.divIcon({
+                html: '<div style="background:#f5a623; width:14px; height:14px; border-radius:50%; border:2px solid #093a27; box-shadow:0 2px 4px rgba(0,0,0,0.3);"></div>',
+                iconSize: [14, 14], iconAnchor: [7, 7], className: ''
+              });
+              var marcador = L.marker([reporte.latitud, reporte.longitud], { icon: iconoPersonalizado }).addTo(mapa);
+              marcadoresActivos.push(marcador);
+              var contenido =
+                '<div style="font-family:\'Quicksand\',sans-serif; min-width:160px;">' +
+                '<b style="color:#093a27; font-size:14px;">' + (reporte.tipo_residuo || 'Residuo') + '</b><br>' +
+                '<span style="color:#666; font-size:12px;">' + (reporte.descripcion || 'Sin descripción') + '</span><br>' +
+                '<small style="color:#999;">Fecha: ' + (reporte.fecha || '—') + '</small><br>' +
+                '<hr style="margin:6px 0;">' +
+                '<a href="detalle.html?id=' + reporte.id_reporte + '" style="color:#093a27; font-weight:700; font-size:13px;">Ver detalles →</a>' +
+                '</div>';
+              marcador.bindPopup(contenido);
+            }
+
+            var item = document.createElement('div');
+            item.className = 'reporte-item';
+            item.innerHTML =
+              '<div class="reporte-item-titulo">' + (reporte.tipo_residuo || 'Residuo desconocido') + '</div>' +
+              '<div class="reporte-item-lugar">Reporte #' + reporte.id_reporte + '</div>';
+            item.onclick = function() {
+              if (reporte.latitud && reporte.longitud) {
+                mapa.flyTo([reporte.latitud, reporte.longitud], 15, { animate: true, duration: 1.2 });
+              }
+            };
+            contenedor.appendChild(item);
+          });
+        })
+        .catch(function(error) {
+          console.error('Error:', error);
+          document.getElementById('lista-reportes-container').innerHTML =
+            '<p class="placeholder-texto">No se pudieron cargar los reportes.</p>';
+        });
+    }
+
+    function cargarPuntosOficiales() {
+      fetch('../backend/getPuntos.php')
+        .then(res => res.json())
+        .then(puntos => {
+          puntos.forEach(punto => {
+            var iconoPunto = L.divIcon({
+              html: '<div style="background:#5fe254; width:16px; height:16px; border-radius:50%; border:2px solid #093a27; box-shadow:0 2px 4px rgba(0,0,0,0.3);"></div>',
+              iconSize: [16, 16], iconAnchor: [8, 8], className: ''
+            });
+            L.marker([punto.latitud, punto.longitud], { icon: iconoPunto })
+              .addTo(mapa)
+              .bindPopup(`
+                <div style="font-family:'Quicksand',sans-serif; min-width:160px;">
+                  <b style="color:#093a27;">${punto.nombre}</b><br>
+                  <span style="color:#666; font-size:12px;">${punto.direccion}</span><br>
+                  <span style="font-size:12px;">Horario: ${punto.horario}</span><br>
+                  <span style="font-size:12px;">Num: ${punto.telefono}</span>
+                </div>
+              `);
+          });
+        });
+    }
+
+    document.getElementById('btn-aplicar-filtros').addEventListener('click', function() {
+      var tipo   = document.getElementById('filtro-tipo').value;
+      cargarMarcadoresDesdeBD(tipo);
+    });
+
+    cargarMarcadoresDesdeBD('todos');
+    cargarPuntosOficiales();
+
+  window.verificarSesionYReportar = function(url) {
+  fetch('../backend/getUser.php', { credentials: 'include' })
+    .then(res => res.json())
+    .then(user => {
+      if (user.success) {
+        window.location.href = url;
+      } else {
+        Swal.fire({
+          title: '¡Atención!',
+          text: 'Debes iniciar sesión para poder reportar.',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Iniciar sesión',
+          cancelButtonText: 'Cancelar',
+          confirmButtonColor: '#0b6b39',
+        }).then(result => {
+          if (result.isConfirmed) {
+            window.location.href = '../views/iniciosesion.html';
+          }
+        });
+      }
+    });
+}
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../assets/js/buscador.js"></script>
+  <script src="../assets/js/logout.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+</body>
+</html>

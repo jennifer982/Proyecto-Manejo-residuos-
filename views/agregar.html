@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Puntos Oficiales</title>
+<link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/agregarNuevo.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+
+<!-- navbar -->
+
+<header class="topbar">
+
+    <div class="logo">
+        <img 
+        src="../assets/img/CAMION.svg"
+        alt="Logo"
+    
+        >
+    </div>
+
+    <nav class="navbar">
+
+        <a href="admin.html" class="nav-item ">
+
+            <img 
+                src="../assets/img/admin/HOME.svg"
+                alt="Inicio"
+                class="nav-icon"
+            >
+        
+            INICIO
+        
+        </a>
+        
+        
+        <a href="flujo.html" class="nav-item ">
+
+            <img 
+                src="../assets/img/admin/FLUJO.svg"
+                alt="Flujo"
+                class="nav-icon"
+            >
+        
+            FLUJO
+        
+        </a>
+        <a href="reportes.html"class="nav-item ">
+    
+            <img 
+                src="../assets/img/admin/REPORTE.svg"
+                alt="Reporte"
+                class="nav-icon"
+            >
+        
+            REPORTES
+        
+        </a>
+
+        <a href="usuarios.html"class="nav-item ">
+    
+            <img 
+                src="../assets/img/admin/USUARIOS.svg"
+                alt="Usuarios"
+                class="nav-icon"
+            >
+        
+            USUARIOS
+        
+        </a>
+        <a href="agregar.html"class="nav-item active">
+    
+            <img 
+                src="../assets/img/admin/OFICIAL.svg"
+                alt="Puntos oficiales"
+                class="nav-icon icon-puntos"
+                >
+        
+            PUNTOS OFICIALES
+        
+        </a>
+
+        <a href="recolectores.html"class="nav-item ">
+    
+            <img 
+                src="../assets/img/admin/RECOLECTORES.svg"
+                alt="Recolectores"
+                class="nav-icon icon-rec"
+                >
+        
+            RECOLECTORES
+        
+        </a>
+
+
+        <a href="evidencias.html"class="nav-item ">
+
+            <img 
+                src="../assets/img/admin/EVIDENCIA.svg"
+                alt="Evidencias"
+                class="nav-icon icon-rec"
+                >
+        
+            EVIDENCIAS
+        
+        </a>
+
+    </nav>
+
+    <button id="btnLogout" class="btn-logout">
+        CERRAR SESION
+    </button>
+
+</header>
+
+<!-- hero -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="icon-puntos"></div>
+
+        <h1>PUNTOS OFICIALES</h1>
+
+        <p>
+            Registro y administracion de puntos autorizados.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- contenido -->
+
+<main class="dashboard">
+
+    <div class="form-container">
+
+        <h2>Registrar Punto Oficial</h2>
+
+        <form id="formPunto">
+
+            <div class="input-group">
+
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Nombre del punto"
+                    required
+                >
+
+                <input 
+                    type="text" 
+                    name="direccion" 
+                    placeholder="Dirección"
+                    required
+                >
+
+            </div>
+
+            <textarea 
+                name="descripcion" 
+                placeholder="Descripción"
+            ></textarea>
+
+            <div class="input-group">
+
+                <input 
+                    type="text" 
+                    name="horario" 
+                    placeholder="Horario"
+                >
+
+                <input 
+                    type="text" 
+                    name="telefono" 
+                    placeholder="Telefono"
+                >
+
+            </div>
+
+            <input type="hidden" name="latitud" id="latitud">
+            <input type="hidden" name="longitud" id="longitud">
+
+            <!-- buscador -->
+
+            <div class="buscador-wrapper">
+
+                <input
+                    type="text"
+                    id="input-buscar-agregar"
+                    class="input-buscar"
+                    placeholder="Buscar colonia en Baja California..."
+                    oninput="filtrarSugerenciasAgregar(this.value)"
+                    autocomplete="off"
+                />
+
+                <div id="sugerencias-agregar" class="sugerencias-lista"></div>
+
+            </div>
+
+            <!-- mapa -->
+
+            <div id="mapa"></div>
+
+            <!-- botones -->
+
+            <div class="botones">
+
+                <button type="submit">
+                    Guardar Punto
+                </button>
+
+                <button type="button" id="btnVerPuntos">
+                    Ver Puntos Registrados
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- tabla -->
+
+    <div id="tablaPuntosContainer"></div>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/agregar.js"></script>
+<script src="../assets/js/logout.js"></script>
+
+</body>
+</html>

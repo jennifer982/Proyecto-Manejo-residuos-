@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reportar Residuo</title>
+  <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/navbar.css" />
+  <link rel="stylesheet" href="../assets/css/buscador.css" />
+  <link rel="stylesheet" href="../assets/css/reportar.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+        <img src="../assets/img/iconos/logo.svg" alt="Logo" width="32" class="nav-logo-img">
+        <div class="nav-left">
+        
+        <a href="../index.html" class="nav-link"><img src="../assets/img/HOME.svg" alt="Inicio" width="20"> Inicio</a>
+        
+        <a href="../views/mapa.html" class="nav-link"><img src="../assets/img/MAPA.svg" alt="Mapa" width="20"> Mapa</a>
+        
+        <a href="../views/reportar.html" class="nav-link"><img src="../assets/img/REPORTE.svg" alt="Reportar" width="20"> Reportar</a>
+      </div>
+      <div class="nav-right" id="nav-usuario">
+        <a href="../views/iniciosesion.html" class="nav-link">Login</a>
+        <a href="../views/formulario.html" class="nav-link">Registro</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-reportar">
+    <div class="hero-reportar-inner">
+      <h1>Formulario de Reportes</h1>
+      <p>Ayúdanos a mantener limpia Baja California</p>
+    </div>
+  </div>
+
+  <!-- FORMULARIO -->
+  <main id="contenido-principal">
+    <form id="formulario-reporte" enctype="multipart/form-data">
+      <div class="contenedor-reporte">
+
+        <!-- SECCIÓN 1: UBICACIÓN -->
+        <div class="seccion-card">
+          <h3>Ubicación del residuo</h3>
+
+          <div class="campo">
+            <label for="direccion">Indique en el mapa la ubicación de los residuos</label>
+            <input type="text" id="direccion" name="direccion"
+              placeholder="Ej: Calle 5ta con Av. Reforma, Centro, Tijuana" required />
+          </div>
+
+          <div class="campo">
+            <label for="descripcion">Descripción del residuo *</label>
+            <textarea id="descripcion" name="descripcion" rows="3"
+              placeholder="Describe brevemente lo que encontraste: cantidad aproximada, condición, etc."
+              required></textarea>
+          </div>
+
+          <div class="campo">
+            <div class="buscador" style="margin-bottom: 8px;">
+              <input
+                type="text"
+                id="input-buscar-reporte"
+                class="buscador-input"
+                placeholder="Buscar colonia o ciudad..."
+                oninput="filtrarSugerenciasReporte(this.value)"
+                autocomplete="off"
+              />
+              <div id="sugerencias-reporte" class="sugerencias" style="display:none;"></div>
+            </div>
+            <div id="coords-info" class="coords-ok">✓ Punto marcado correctamente</div>
+            <div id="mini-mapa"></div>
+            <input type="hidden" id="latitud" name="latitud" />
+            <input type="hidden" id="longitud" name="longitud" />
+          </div>
+        </div>
+
+        <!-- SECCIÓN 2: TIPO DE RESIDUO -->
+        <div class="seccion-card">
+          <h3>Tipo de residuo</h3>
+
+          <div class="campo">
+            <label>Marque el tipo de residuo:</label>
+            <select id="tipo-residuo" name="id_tipo" required>
+              <option value="">-- Selecciona el tipo --</option>
+              <option value="1">Concreto</option>
+              <option value="2">Metales</option>
+              <option value="3">Mampostería</option>
+              <option value="4">Pétreos</option>
+              <option value="5">Mezcla asfáltica</option>
+              <option value="6">Excavación</option>
+              <option value="7">Elementos prefabricados</option>
+              <option value="8">Otros residuos</option>
+            </select>
+
+            <div class="tipos-grid">
+              <button type="button" class="tipo-btn" data-valor="1">
+                <img src="../assets/img/iconos/concreto0.svg" class="icono-svg" alt="Concreto" />Concreto
+              </button>
+              <button type="button" class="tipo-btn" data-valor="2">
+                <img src="../assets/img/iconos/metal0.svg" class="icono-svg" alt="Metales" />Metales
+              </button>
+              <button type="button" class="tipo-btn" data-valor="3">
+                <img src="../assets/img/iconos/block0.svg" class="icono-svg" alt="Mampostería" />Mampostería
+              </button>
+              <button type="button" class="tipo-btn" data-valor="4">
+                <img src="../assets/img/iconos/vector0.svg" class="icono-svg" alt="Pétreos" />Pétreos
+              </button>
+              <button type="button" class="tipo-btn" data-valor="5">
+                <img src="../assets/img/iconos/mezcla-asfaltica0.svg" class="icono-svg" alt="Mezcla asfáltica" />Mezcla asfáltica
+              </button>
+              <button type="button" class="tipo-btn" data-valor="6">
+                <img src="../assets/img/iconos/excavaci-n0.svg" class="icono-svg" alt="Excavación" />Excavación
+              </button>
+              <button type="button" class="tipo-btn" data-valor="7">
+                <img src="../assets/img/iconos/prefabricados0.svg" class="icono-svg" alt="Prefabricados" />Prefabricados
+              </button>
+              <button type="button" class="tipo-btn" data-valor="8">
+                <img src="../assets/img/iconos/group4.svg" class="icono-svg" alt="Otros" />Otros
+              </button>
+            </div>
+          </div>
+
+          <div class="campo" id="contenedor-material" style="visibility:hidden; height:0; overflow:hidden;">
+            <label for="material-especifico">Material específico *</label>
+            <select id="material-especifico" name="id_residuo" required>
+              <option value="">-- Selecciona el material --</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 3: NIVEL DE RIESGO -->
+        <div class="seccion-card">
+          <h3>Nivel de riesgo</h3>
+          <div class="campo">
+            <label>Indique el nivel de riesgo:</label>
+            <div class="riesgo-wrapper">
+              <input type="range" id="riesgo" name="riesgo" min="1" max="5" value="1" step="1"
+                class="slider-riesgo" oninput="actualizarRiesgo(this.value)" />
+              <div class="labels-riesgo">
+                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              </div>
+              <div class="riesgo-desc" id="riesgo-desc"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 4: EVIDENCIA -->
+        <div class="seccion-card">
+          <h3>Evidencia del espacio</h3>
+          <div class="campo">
+            <label>Adjunte evidencia del espacio:</label>
+            <div class="fotos-grid">
+              <label class="foto-label">
+                <img src="../assets/img/iconos/add-image.svg" class="icono-svg" alt="Agregar foto" />
+                <input type="file" name="foto1" accept="image/*" required onchange="previewFoto(this, 'preview1')" />
+                <img id="preview1" class="foto-preview" />
+              </label>
+              <label class="foto-label">
+                <img src="../assets/img/iconos/add-image.svg" class="icono-svg" alt="Agregar foto" />
+                <input type="file" name="foto2" accept="image/*" required onchange="previewFoto(this, 'preview2')" />
+                <img id="preview2" class="foto-preview" />
+              </label>
+              <label class="foto-label">
+                <img src="../assets/img/iconos/add-image.svg" class="icono-svg" alt="Agregar foto" />
+                <input type="file" name="foto3" accept="image/*" required onchange="previewFoto(this, 'preview3')" />
+                <img id="preview3" class="foto-preview" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 5: OPCIONES -->
+        <div class="seccion-card">
+          <h3>Opciones</h3>
+          <div class="campo">
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <input type="checkbox" id="reporte-anonimo" name="anonimo">
+              Reportar como anónimo (el reporte no mostrará tu nombre)
+            </label>
+          </div>
+        </div>
+
+        <!-- BOTÓN ENVIAR -->
+        <button type="submit" class="btn-enviar" id="btn-enviar-reporte">
+          ENVIAR REPORTE
+        </button>
+
+      </div>
+    </form>
+
+    <!-- MENSAJE CONFIRMACIÓN -->
+    <div id="mensaje-confirmacion" style="display:none; max-width:780px; margin:40px auto; padding:0 20px;">
+      <div class="mensaje-exito">
+        <h3>¡Reporte enviado correctamente!</h3>
+        <p>Gracias por ayudar a mantener limpia Baja California.</p>
+        <a href="../views/mapa.html" class="boton boton-secundario">Ver mapa</a>
+        <a href="../views/reportar.html" class="boton boton-primario">Hacer otro reporte</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // ── Mapa ──────────────────────────────────
+    var mapaReporte = L.map('mini-mapa').setView([32.5149, -117.0382], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(mapaReporte);
+    var marcador = null;
+
+    function colocarMarcador(lat, lng) {
+      if (marcador) { mapaReporte.removeLayer(marcador); }
+      marcador = L.marker([lat, lng]).addTo(mapaReporte);
+      document.getElementById('latitud').value  = lat;
+      document.getElementById('longitud').value = lng;
+      document.getElementById('coords-info').style.display = 'block';
+    }
+
+    mapaReporte.on('click', function(e) {
+      colocarMarcador(e.latlng.lat, e.latlng.lng);
+    });
+
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var lat = parseFloat(params.get('lat'));
+      var lng = parseFloat(params.get('lng'));
+      if (!isNaN(lat) && !isNaN(lng)) {
+        mapaReporte.setView([lat, lng], 17);
+        colocarMarcador(lat, lng);
+      }
+    })();
+
+    // ── Buscador de colonias ──────────────────
+    var temporizadorReporte;
+
+    function filtrarSugerenciasReporte(texto) {
+      var lista = document.getElementById('sugerencias-reporte');
+      if (texto.length < 3) { lista.style.display = 'none'; lista.innerHTML = ''; return; }
+      lista.innerHTML = '<div class="sin-resultados">Buscando...</div>';
+      lista.style.display = 'block';
+      clearTimeout(temporizadorReporte);
+      temporizadorReporte = setTimeout(function() { buscarEnNominatimReporte(texto); }, 500);
+    }
+
+    function buscarEnNominatimReporte(texto) {
+      var lista = document.getElementById('sugerencias-reporte');
+      var url = 'https://nominatim.openstreetmap.org/search?q=' +
+        encodeURIComponent(texto + ', Baja California, México') +
+        '&format=json&limit=6&countrycodes=mx&addressdetails=1';
+      fetch(url, { headers: { 'Accept-Language': 'es' } })
+        .then(function(r) { return r.json(); })
+        .then(function(resultados) {
+          lista.innerHTML = '';
+          if (!resultados.length) {
+            lista.innerHTML = '<div class="sin-resultados">Sin resultados</div>';
+            lista.style.display = 'block'; return;
+          }
+          resultados.forEach(function(lugar) {
+            var item = document.createElement('div');
+            item.className = 'sugerencia-item';
+            var nombre = lugar.display_name.split(',').slice(0, 3).join(',');
+            item.textContent = nombre;
+            item.onclick = function() {
+              document.getElementById('input-buscar-reporte').value = nombre;
+              document.getElementById('sugerencias-reporte').style.display = 'none';
+              mapaReporte.flyTo([parseFloat(lugar.lat), parseFloat(lugar.lon)], 15, { animate: true, duration: 1.5 });
+            };
+            lista.appendChild(item);
+          });
+          lista.style.display = 'block';
+        })
+        .catch(function() {
+          lista.innerHTML = '<div class="sin-resultados">Error al buscar.</div>';
+          lista.style.display = 'block';
+        });
+    }
+
+    document.addEventListener('click', function(e) {
+      var buscador = document.getElementById('input-buscar-reporte');
+      var sugerencias = document.getElementById('sugerencias-reporte');
+      if (buscador && !buscador.contains(e.target) && sugerencias && !sugerencias.contains(e.target)) {
+        sugerencias.style.display = 'none';
+      }
+    });
+
+    // ── Tipos de residuo ──────────────────────
+    document.querySelectorAll('.tipo-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tipo-btn').forEach(function(b) { b.classList.remove('seleccionado'); });
+        btn.classList.add('seleccionado');
+        document.getElementById('tipo-residuo').value = btn.dataset.valor;
+        document.getElementById('tipo-residuo').dispatchEvent(new Event('change'));
+      });
+    });
+
+    // ── Riesgo ────────────────────────────────
+    var descripciones = {
+      1: 'Riesgo bajo: Pequeña acumulación, sin mezcla de materiales. Sin obstrucción ni contaminación visible.',
+      2: 'Riesgo leve: Acumulación moderada. Posible leve afectación al entorno.',
+      3: 'Riesgo medio: Acumulación evidente, posible mezcla de materiales. Obstrucción de paso o riesgo leve a salud.',
+      4: 'Riesgo alto: Gran acumulación con materiales mixtos. Riesgo real a salud o contaminación de zona.',
+      5: 'Riesgo crítico: Emergencia ambiental. Requiere atención inmediata.'
+    };
+
+    function actualizarRiesgo(val) {
+      var desc = document.getElementById('riesgo-desc');
+      desc.textContent = descripciones[val];
+      desc.style.display = 'block';
+    }
+
+    actualizarRiesgo(1);
+
+    // ── Preview fotos ─────────────────────────
+    function previewFoto(input, previewId) {
+      var preview = document.getElementById(previewId);
+      var label = input.closest('.foto-label');
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+          label.querySelector('.icono-svg').style.display = 'none';
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../assets/js/reporte.js?v=2"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/logout.js"></script>
+</body>
+</html>

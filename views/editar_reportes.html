@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Reportes</title>
+<link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/recolectores.css">
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!--  SIDEBAR COMPLETO -->
+    <aside class="sidebar">
+        <h2>ADMIN </h2>
+        <ul>
+            <li><a href="admin.html" class="menu-link">Inicio</a></li>
+            <li><a href="flujo.html" class="menu-link">Flujo</a></li>
+            <li><a href="reportes.html" class="menu-link">Reportes</a></li>
+            <li><a href="recolectores.html" class="menu-link activo">Recolectores</a></li>
+            <li><a href="evidencias.html" class="menu-link">Evidencias</a></li>            
+            <li><a href="usuarios.html" class="menu-link">Usuarios</a></li>            
+            <li><a href="agregar.html" class="menu-link">Puntos Oficiales</a></li>
+            <li><a href="#" id="btnLogout">Cerrar sesión</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTENIDO -->
+    <main class="main-content">
+        <div class="contenido">
+            <h1>Editar Reportes Asignados</h1>
+
+            <!--  Aquí luego pondremos la tabla -->
+            <div class="tabla-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Categoría</th>
+                            <th>Recolector</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-editar"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/editar_reportes.js"></script>
+<script src="../assets/js/navbar.js"></script>
+<script src="../assets/js/logout.js"></script>
+<script src="../assets/js/sessionTimeout.js"></script>
+
+</body>
+</html>

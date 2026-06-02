@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Acceso</title>
+    <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/stylelogins.css">
+</head>
+<body>
+
+<!-- ENCABEZADO -->
+<nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                
+                
+                <a href="../index.html" class="nav-link"><img src="../assets/img/HOME.svg" alt="Logo" width="20">  Inicio</a> 
+                <a href="../views/mapa.html" class="nav-link"><img src="../assets/img/MAPA.svg" alt="Logo" width="20">  Mapa</a>           
+                <a href="../views/reportar.html" class="nav-link"><img src="../assets/img/REPORTE.svg" alt="Logo" width="20">  Reportar</a>
+                
+            </div>
+            <div class="nav-right">
+                <a href="../views/iniciosesion.html" class="nav-link">Login</a>
+                <a href="../views/formulario.html" class="nav-link">Registro</a>
+                
+            </div>
+        </div>
+</nav>
+
+
+<main class="login-wrapper">
+    <div class="background-overlay"></div>
+    <div class="login-group">
+        <div class="login-logo">
+                <!-- Reemplaza 'logo-camioneta.svg' con la ruta de tu archivo SVG -->
+                <img src="../assets/img/CAMION.svg" alt="Logo" width="80"> 
+        </div>
+        <div class="login-container">
+        
+            <form id="formLogin" class="login-form">
+                <h2>Iniciar Sesión</h2>
+                 <p class="register-text">
+                    ¿No tienes una cuenta? <a href="../views/formulario.html" class="nav-link-sesion">Regístrate aquí</a>
+                </p>
+                <div class="input-group">
+                    <input type="text" id="correo" required placeholder="Correo">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="contrasena" required placeholder="Contraseña">
+                </div>
+                <button type="submit">Entrar</button>
+                <a href="../views/recuperar.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/login.js"></script>
+<script src="../assets/js/logout.js"></script>
+<script src="../assets/js/navbar.js"></script>
+</body>
+</html>

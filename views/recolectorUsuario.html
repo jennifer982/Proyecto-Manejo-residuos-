@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Recolector</title>
+  <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/recolectorPanel.css">
+  <style>
+    .btn-toggle-sidebar {
+      position: absolute;
+      left: 16px;
+    }
+    .nav-container {
+      justify-content: space-between;
+      padding-left: 50px;
+    }
+    .nav-left {
+      margin-left: 0;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-left" style="display: flex; align-items: center; gap: 16px;">
+         <a href="../index.html" class="nav-link"><img src="../assets/img/HOME.svg" alt="Logo" width="20">  Inicio</a> 
+         <a href="../views/mapa.html" class="nav-link"><img src="../assets/img/MAPA.svg" alt="Logo" width="20">  Mapa</a>           
+         <a href="../views/reportar.html" class="nav-link"><img src="../assets/img/REPORTE.svg" alt="Logo" width="20">  Reportar</a>
+        </div>  
+    <div class="nav-right-recolector">
+         <button class="btn-logout" onclick="cerrarSesion()">CERRAR SESIÓN</button>
+    </div>
+    </div>
+  </nav>
+
+  <div class="recolector-container">
+
+   
+
+    <main class="recolector-main">
+
+      <!-- Vista: Mis reportes -->
+      <div id="vista-reportes">
+        <div class="cards-resumen">
+          <div class="card-resumen">
+            <p class="label">Asignados</p>
+            <p class="valor" style="color: #1e3a5f;">0</p>
+          </div>
+          <div class="card-resumen">
+            <p class="label">Aceptados</p>
+            <p class="valor" style="color: #28a745;">0</p>
+          </div>
+          <div class="card-resumen">
+            <p class="label">Rechazados</p>
+            <p class="valor" style="color: #dc3545;">0</p>
+          </div>
+        </div>
+
+        <div class="tabla-box">
+          <div class="tabla-header"><h2>Mis reportes</h2></div>
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 50px;">ID</th>
+                <th style="width: 120px;">Categoría</th>
+                <th style="width: 120px;">Fecha</th>
+                <th style="width: 70px;">Riesgo</th>
+                <th style="width: 90px;">Estado</th>
+                <th style="width: 320px;">Acciones</th>              </tr>
+            </thead>
+            <tbody id="tabla-reportes"></tbody>
+          </table>
+        </div>
+      </div>
+
+          
+
+    </main>
+  </div>
+
+  <script>
+    var sidebarVisible =false;
+
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar-recolector');
+      sidebarVisible = !sidebarVisible;
+      sidebar.style.width   = sidebarVisible ? '220px' : '0';
+      sidebar.style.padding = sidebarVisible ? '24px'  : '0';
+    }
+
+    function mostrarVista(vista) {
+       document.getElementById('vista-reportes').style.display = vista === 'reportes' ? 'block' : 'none';
+      document.getElementById('vista-perfil').style.display   = vista === 'perfil'   ? 'block' : 'none';
+      document.getElementById('btn-reportes').classList.toggle('activo', vista === 'reportes');
+      document.getElementById('btn-perfil').classList.toggle('activo',   vista === 'perfil');
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../assets/js/recolectorUsuario.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/logout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

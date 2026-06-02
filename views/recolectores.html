@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recolectores</title>
+    <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/recolectoresNuevo.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="logo">
+        <img src="../assets/img/CAMION.svg" alt="Logo">
+    </div>
+    <nav class="navbar">
+        <a href="admin.html" class="nav-item">
+            <img src="../assets/img/admin/HOME.svg" alt="Inicio" class="nav-icon"> INICIO
+        </a>
+        <a href="flujo.html" class="nav-item">
+            <img src="../assets/img/admin/FLUJO.svg" alt="Flujo" class="nav-icon"> FLUJO
+        </a>
+        <a href="reportes.html" class="nav-item">
+            <img src="../assets/img/admin/REPORTE.svg" alt="Reporte" class="nav-icon"> REPORTES
+        </a>
+        <a href="usuarios.html" class="nav-item">
+            <img src="../assets/img/admin/USUARIOS.svg" alt="Usuarios" class="nav-icon"> USUARIOS
+        </a>
+        <a href="agregar.html" class="nav-item">
+            <img src="../assets/img/admin/OFICIAL.svg" alt="Puntos oficiales" class="nav-icon icon-puntos"> PUNTOS OFICIALES
+        </a>
+        <a href="recolectores.html" class="nav-item active">
+            <img src="../assets/img/admin/RECOLECTORES.svg" alt="Recolectores" class="nav-icon icon-rec"> RECOLECTORES
+        </a>
+        <a href="evidencias.html" class="nav-item">
+            <img src="../assets/img/admin/EVIDENCIA.svg" alt="Evidencias" class="nav-icon icon-rec"> EVIDENCIAS
+        </a>
+    </nav>
+    <button id="btnLogout" class="btn-logout">CERRAR SESIÓN</button>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>RECOLECTORES</h1>
+        <p>Administracion y asignacion de reportes.</p>
+    </div>
+</section>
+
+<main class="dashboard">
+
+    <!-- TABLA REPORTES ASIGNABLES -->
+    <section class="seccion-tabla">
+        <div class="titulo-seccion">
+            <h2>Reportes Aceptados</h2>
+        </div>
+        <div class="tabla-container">
+        <table class="tabla-asignar">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoría</th>
+                    <th>Fecha</th>
+                    <th>Riesgo</th>
+                    <th>Recolector</th>
+                    <th>Fecha de asignacion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-reportes"></tbody>
+        </table>
+        </div>
+    </section>
+
+    <!-- SOLICITUDES DE RECOLECTORES -->
+    <section class="seccion-tabla">
+        <div class="titulo-seccion">
+            <h2>Solicitudes de Recolectores</h2>
+        </div>
+        <div class="tabla-container">
+            <table id="tablaSolicitudes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/recolectores.js"></script>
+<script src="../assets/js/logout.js"></script>
+</body>
+</html>

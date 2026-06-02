@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styleLogins.css">
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+
+    
+    
+</head>
+<body>
+<!-- = ENCABEZADO =-->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-left">
+             <a href="../index.html" class="nav-link"><img src="../assets/img/HOME.svg" alt="Logo" width="20">  Inicio</a> 
+                <a href="../views/mapa.html" class="nav-link"><img src="../assets/img/MAPA.svg" alt="Logo" width="20">  Mapa</a>           
+                <a href="../views/reportar.html" class="nav-link"><img src="../assets/img/REPORTE.svg" alt="Logo" width="20">  Reportar</a>
+                
+
+        </div>
+        <div class="nav-right">
+            <a href="../views/iniciosesion.html" class="nav-link">Login</a>
+            <a href="../views/formulario.html" class="nav-link">Registro</a>
+        </div>
+    </div>
+</nav>
+
+<main class="login-wrapper">    
+    </nav>
+    <div class="background-overlay"></div>
+    <div class="login-group">
+        <div class="login-logo">
+                <!-- Reemplaza 'logo-camioneta.svg' con la ruta de tu archivo SVG -->
+                <img src="../assets/img/CAMION.svg" alt="Logo" width="80"> 
+        </div>
+      
+    <div class="login-container">
+        <!-- contenedor principal -->
+            <div id="recoveryFormContainer">
+                <!-- Solicitar correo  -->
+                <form id="step1Form" class="login-form">
+                    <h2>Recuperar cuenta</h2>
+                    <p>Introduce tu correo electrónico para enviarte un código de verificación</p>
+                    <div class="input-group">
+                        <input type="email" id="recoveryEmail" required placeholder="correo@gmail.com">
+                    </div>
+                    <button type="submit" id="sendCodeBtn">Enviar código</button>
+                    <div id="msgStep1" class="message-info"></div>
+                </form>
+
+                <!-- Verificar código (oculto inicialmente) -->
+                <form id="step2Form" class="login-form" style="display: none;">
+                    <h2>Verificar código</h2>
+                    <p>Hemos enviado un código de 6 dígitos a <strong id="emailDisplay"></strong></p>
+                    <div class="input-group">
+                        <input type="text" id="verificationCode" required placeholder="Código de 6 dígitos" maxlength="6">
+                    </div>
+                    <button type="submit" id="verifyCodeBtn">Verificar código</button>
+                    <button type="button" id="backToStep1Btn" class="btn-link">← Cambiar correo</button>
+                    <div id="msgStep2" class="message-info"></div>
+                </form>
+
+                <!-- Nueva contraseña (oculto inicialmente) -->
+                <form id="step3Form" class="login-form" style="display: none;">
+                    <h2>Nueva contraseña</h2>
+                    <p>Ingresa tu nueva contraseña</p>
+                    <div class="input-group">
+                        <input type="password" id="newPassword" required placeholder="Nueva contraseña" minlength="8">
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="confirmPassword" required placeholder="Confirmar contraseña" minlength="8">
+                    </div>
+                    <button type="submit" id="resetPasswordBtn">Restablecer contraseña</button>
+                    <div id="msgStep3" class="message-info"></div>
+                </form>
+            </div>
+        </div>
+    </div> 
+    </main>
+    <!-- Script gamin -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/js/recuperar.js"></script>
+</body>
+</html>

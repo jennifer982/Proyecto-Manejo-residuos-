@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Flujo Administrativo</title>
+<link rel="icon" href="../assets/img/CAMION.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/flujoNuevo.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- navnar -->
+
+<header class="topbar">
+
+    <div class="logo">
+        <img 
+        src="../assets/img/CAMION.svg"
+        alt="Logo"
+    >
+        
+    </div>
+
+    <nav class="navbar">
+
+
+    
+        <a href="admin.html" class="nav-item ">
+
+            <img 
+                src="../assets/img/admin/HOME.svg"
+                alt="Inicio"
+                class="nav-icon"
+            >
+        
+            INICIO
+        
+        </a>
+
+        <a href="flujo.html" class="nav-item active">
+
+            <img 
+                src="../assets/img/admin/FLUJO.svg"
+                alt="Flujo"
+                class="nav-icon"
+            >
+        
+            FLUJO
+        
+        </a>
+        <a href="reportes.html"class="nav-item ">
+    
+                <img 
+                    src="../assets/img/admin/REPORTE.svg"
+                    alt="Reporte"
+                    class="nav-icon"
+                >
+            
+                REPORTES
+            
+            </a>
+
+            <a href="usuarios.html"class="nav-item ">
+    
+                <img 
+                    src="../assets/img/admin/USUARIOS.svg"
+                    alt="Usuarios"
+                    class="nav-icon"
+                >
+            
+                USUARIOS
+            
+            </a>
+            <a href="agregar.html"class="nav-item ">
+    
+                <img 
+                    src="../assets/img/admin/OFICIAL.svg"
+                    alt="Puntos oficiales"
+                    class="nav-icon icon-puntos"
+                    >
+            
+                PUNTOS OFICIALES
+            
+            </a>
+
+            <a href="recolectores.html"class="nav-item ">
+    
+                <img 
+                    src="../assets/img/admin/RECOLECTORES.svg"
+                    alt="Recolectores"
+                    class="nav-icon icon-rec"
+                    >
+            
+                RECOLECTORES
+            
+            </a>
+
+
+            <a href="evidencias.html"class="nav-item ">
+    
+                <img 
+                    src="../assets/img/admin/EVIDENCIA.svg"
+                    alt="Evidencias"
+                    class="nav-icon icon-rec"
+                    >
+            
+                EVIDENCIAS
+            
+            </a>
+    </nav>
+
+    <button id="btnLogout" class="btn-logout">
+        CERRAR SESION
+    </button>
+
+</header>
+
+<!-- hero -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="icono-flujo"></div>
+
+        <h1>FLUJO</h1>
+
+    </div>
+
+</section>
+
+<!-- contenido -->
+
+<main class="dashboard">
+
+    <div class="dashboard-contenido">
+
+        <!-- CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Total</h3>
+
+                <div id="total">0</div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Pendientes</h3>
+
+                <div id="pendientes">0</div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Atendidos</h3>
+
+                <div id="resueltos">0</div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Aceptados</h3>
+
+                <div id="aceptados">0</div>
+
+            </div>
+
+        </div>
+
+<!-- grafica y leyenda  -->
+
+<div class="grafica-section">
+
+    <!-- grafica -->
+    <div class="grafica-box">
+
+        <canvas id="graficaEstados"></canvas>
+
+    </div>
+
+    <!-- leyenda -->
+    <div class="leyenda">
+
+        <div class="leyenda-item">
+            <span class="color verde"></span>
+            <p>Atendido</p>
+        </div>
+
+        <div class="leyenda-item">
+            <span class="color azul"></span>
+            <p>Aceptado</p>
+        </div>
+
+        <div class="leyenda-item">
+            <span class="color morado"></span>
+            <p>Proceso</p>
+        </div>
+
+        <div class="leyenda-item">
+            <span class="color rosa"></span>
+            <p>Pendiente</p>
+        </div>
+
+        <div class="leyenda-item">
+            <span class="color naranja"></span>
+            <p>Rechazado</p>
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../assets/js/flujo.js"></script>
+<script src="../assets/js/logout.js"></script>
+
+
+</body>
+</html>
