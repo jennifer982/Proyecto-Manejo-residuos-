@@ -1,0 +1,417 @@
+/* ================= REINICIO GENERAL ================= */
+
+/* Elimina márgenes y padding por defecto */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Configuración general de la página */
+body{
+    font-family:Arial, sans-serif;
+    background:#f5f5f5;
+    padding-top:75px; /* Espacio para el navbar fijo */
+}
+
+/* ================= NAVBAR ================= */
+
+/* Barra superior fija */
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+
+    z-index:1000;
+
+    height:75px;
+
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Menú de navegación */
+.navbar{
+    display:flex;
+    gap:35px;
+}
+
+/* Enlaces */
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* Página activa */
+.navbar a.active{
+    color:#39b54a;
+}
+
+/* Botón cerrar sesión */
+.btn-logout{
+    background:#d79b00;
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    color:white;
+}
+
+/* ================= HERO ================= */
+
+/* Encabezado principal */
+.hero{
+    height:280px;
+
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+/* Centra el contenido */
+.hero-content{
+    text-align:center;
+}
+
+/* Título */
+.hero h1{
+    font-size:64px;
+    letter-spacing:4px;
+}
+
+/* Subtítulo */
+.hero p{
+    margin-top:15px;
+    font-size:22px;
+    color:#b7ff65;
+}
+
+/* ================= DASHBOARD ================= */
+
+/* Contenedor principal */
+.dashboard{
+    padding:40px;
+}
+
+/* ================= TABLA DE ASIGNACION ================= */
+
+/* Tabla principal de asignación de recolectores */
+.tabla-asignar{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    table-layout:fixed;
+}
+
+/* Encabezado */
+.tabla-asignar thead tr{
+
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    color:white;
+}
+
+/* Encabezados y celdas */
+.tabla-asignar th,
+.tabla-asignar td{
+
+    padding:14px 18px;
+
+    text-align:left;
+
+    font-size:0.9rem;
+
+    border-bottom:1px solid #e0e0e0;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+/* Hover sobre filas */
+.tabla-asignar tbody tr:hover{
+    background:#f7fff1;
+}
+
+/* Select para elegir recolectores */
+.tabla-asignar select{
+
+    padding:6px 10px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    font-size:0.85rem;
+
+    width:100%;
+}
+
+/* Botones */
+.tabla-asignar button{
+
+    padding:6px 14px;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:0.82rem;
+
+    font-weight:bold;
+
+    margin-right:4px;
+
+    color:white;
+}
+
+/* Botón asignar */
+.tabla-asignar button.btn-asignar{
+    background:#28a745;
+}
+
+/* Botón cancelar */
+.tabla-asignar button.btn-cancelar{
+    background:#dc3545;
+}
+
+/* ================= TAMAÑOS DE COLUMNAS ================= */
+
+/* ID */
+.tabla-asignar th:nth-child(1),
+.tabla-asignar td:nth-child(1){
+    width:50px;
+}
+
+/* Nombre */
+.tabla-asignar th:nth-child(2),
+.tabla-asignar td:nth-child(2){
+    width:110px;
+}
+
+/* Zona */
+.tabla-asignar th:nth-child(3),
+.tabla-asignar td:nth-child(3){
+    width:130px;
+}
+
+/* Prioridad */
+.tabla-asignar th:nth-child(4),
+.tabla-asignar td:nth-child(4){
+    width:60px;
+    text-align:center;
+}
+
+/* Estado */
+.tabla-asignar th:nth-child(5),
+.tabla-asignar td:nth-child(5){
+    width:150px;
+}
+
+/* Recolector */
+.tabla-asignar th:nth-child(6),
+.tabla-asignar td:nth-child(6){
+    width:150px;
+}
+
+/* Acciones */
+.tabla-asignar th:nth-child(7),
+.tabla-asignar td:nth-child(7){
+    width:150px;
+    white-space:nowrap;
+}
+
+/* ================= LOGO E ICONOS ================= */
+
+/* Logo */
+.logo img{
+    width:55px;
+    height:auto;
+    object-fit:contain;
+}
+
+/* Elemento del menú */
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+}
+
+/* Iconos */
+.nav-icon{
+    width:18px;
+    height:18px;
+    object-fit:contain;
+}
+
+/* Icono puntos */
+.icon-puntos{
+    width:24px;
+    height:50px;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+}
+
+/* Icono recolector */
+.icon-rec{
+    width:26px;
+    height:60px;
+    object-fit:contain;
+    filter:brightness(0) invert(1);
+}
+
+/* ================= SOLICITUDES ================= */
+
+/* Contenedor de solicitudes */
+.seccion-tabla{
+    margin-bottom:40px;
+}
+
+/* Título */
+.seccion-tabla h2{
+    font-size:22px;
+    font-weight:bold;
+    color:#093a27;
+    margin-bottom:16px;
+}
+
+/* Caja de tabla */
+.tabla-container{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Tabla solicitudes */
+#tablaSolicitudes{
+    width:100%;
+    border-collapse:collapse;
+}
+
+/* Encabezado */
+#tablaSolicitudes thead tr{
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+    color:white;
+}
+
+/* Celdas */
+#tablaSolicitudes th,
+#tablaSolicitudes td{
+    padding:14px 18px;
+    text-align:left;
+    font-size:0.9rem;
+    border-bottom:1px solid #e0e0e0;
+}
+
+/* Hover */
+#tablaSolicitudes tbody tr:hover{
+    background:#f7fff1;
+}
+
+/* Botones */
+#tablaSolicitudes button{
+    padding:6px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:0.82rem;
+    font-weight:bold;
+    margin-right:4px;
+    color:white;
+}
+
+/* Botón aceptar */
+#tablaSolicitudes .btn-aceptar{
+    background:#28a745;
+}
+
+/* Botón rechazar */
+#tablaSolicitudes .btn-rechazar{
+    background:#dc3545;
+}
+
+/* Otros botones */
+#tablaSolicitudes button:not(.btn-aceptar):not(.btn-rechazar){
+    background:#0b6b39;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para celulares */
+@media(max-width:768px){
+
+    .topbar{
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+        gap:15px;
+    }
+
+    .navbar{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero{
+        height:auto;
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .dashboard{
+        padding:20px;
+    }
+}

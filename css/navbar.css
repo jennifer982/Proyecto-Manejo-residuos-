@@ -1,0 +1,150 @@
+/* =============================================
+   navbar.css
+   Estilos del menú desplegable del usuario
+============================================= */
+
+/* Importa las fuentes Quicksand y Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+
+/* Contenedor que almacena el botón y el menú desplegable */
+.nav-usuario-wrapper {
+  position: relative;
+}
+
+/* ================= BOTON USUARIO ================= */
+
+/* Botón que muestra el nombre del usuario */
+.nav-usuario-btn {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  border: none;
+
+  color: white;
+
+  font-family: 'Quicksand', sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+/* Efecto al pasar el mouse */
+.nav-usuario-btn:hover {
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ================= FLECHA DEL MENU ================= */
+
+/* Flecha que indica que existe un menú desplegable */
+.nav-flecha {
+
+  font-size: 10px;
+
+  transition: transform 0.2s;
+
+  display: inline-block;
+}
+
+/* Rotación de la flecha cuando el menú está abierto */
+.nav-flecha-abierta {
+
+  transform: rotate(180deg);
+}
+
+/* ================= MENU DESPLEGABLE ================= */
+
+/* Menú oculto por defecto */
+.nav-dropdown {
+
+  display: none;
+
+  position: absolute;
+
+  top: 38px;
+
+  right: 0;
+
+  background: white;
+
+  border-radius: 6px;
+
+  border: 1px solid #dddddd;
+
+  min-width: 160px;
+
+  z-index: 1000;
+
+  overflow: hidden;
+}
+
+/* Clase que muestra el menú */
+.nav-dropdown-visible {
+
+  display: block;
+}
+
+/* ================= OPCIONES DEL MENU ================= */
+
+/* Opciones o enlaces del menú */
+.nav-dropdown-item {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 10px 14px;
+
+  font-size: 13px;
+
+  text-align: left;
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  color: #333333;
+}
+
+/* Efecto hover de cada opción */
+.nav-dropdown-item:hover {
+
+  background: #f5f5f5;
+}
+
+/* ================= CERRAR SESION ================= */
+
+/* Opción especial para cerrar sesión */
+.nav-cerrar-sesion {
+
+  color: #2d5a27;
+
+  font-weight: bold;
+}
+
+/* Hover del botón cerrar sesión */
+.nav-cerrar-sesion:hover {
+
+  background: #e8f5e3;
+
+  color: #2d5a27;
+}

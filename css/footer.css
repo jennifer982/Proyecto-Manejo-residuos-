@@ -1,0 +1,199 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= VARIABLES GLOBALES ================= */
+
+/* Variables reutilizables para colores, sombras y tamaños */
+:root {
+  --verde-oscuro: #093a27;
+  --verde-medio: #0b6b39;
+  --verde-claro: #5fe254;
+  --verde-hover: #4ecc44;
+
+  --beige: #f5f0e8;
+  --gris-fondo: #f7f7f5;
+  --gris-borde: #ddd;
+
+  --texto: #1a1a1a;
+  --texto-suave: #666;
+
+  --radio: 12px;
+
+  --sombra: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ================= FOOTER PRINCIPAL ================= */
+
+/* Pie de página del sistema */
+.footer-reportabc {
+
+  /* Fondo degradado */
+  background: linear-gradient(
+      135deg,
+      var(--verde-oscuro) 0%,
+      var(--verde-medio) 100%
+  );
+
+  color:#ffffff;
+
+  padding:40px 20px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  margin-top:60px;
+
+  /* Línea superior decorativa */
+  border-top:3px solid var(--verde-claro);
+}
+
+/* Círculo decorativo de fondo */
+.footer-reportabc::before {
+
+  content:'';
+
+  position:absolute;
+
+  bottom:-50px;
+  left:-50px;
+
+  width:220px;
+  height:220px;
+
+  border-radius:50%;
+
+  background:rgba(95,226,84,0.06);
+
+  pointer-events:none;
+}
+
+/* ================= CONTENIDO DEL FOOTER ================= */
+
+/* Contenedor principal */
+.footer-contenido {
+
+  max-width:780px;
+
+  width:100%;
+
+  margin:0 auto;
+
+  text-align:center;
+
+  position:relative;
+
+  z-index:1;
+}
+
+/* Nombre de la universidad */
+.footer-uabc {
+
+  font-family:'Quicksand', sans-serif;
+
+  font-size:1.05rem;
+
+  font-weight:700;
+
+  letter-spacing:.5px;
+
+  margin-bottom:4px;
+}
+
+/* Lema institucional */
+.footer-lema {
+
+  font-family:'Quicksand', sans-serif;
+
+  font-size:.9rem;
+
+  font-style:italic;
+
+  color:var(--verde-claro);
+
+  margin-bottom:24px;
+}
+
+/* Texto de desarrollo del proyecto */
+.footer-desarrollo {
+
+  font-family:'Quicksand', sans-serif;
+
+  font-size:.88rem;
+
+  color:rgba(255,255,255,.85);
+
+  line-height:1.5;
+
+  margin-bottom:12px;
+}
+
+/* ================= INTEGRANTES ================= */
+
+/* Contenedor de integrantes */
+.footer-integrantes {
+
+  display:grid;
+
+  /* Dos columnas */
+  grid-template-columns:repeat(2,1fr);
+
+  gap:8px;
+
+  max-width:450px;
+
+  margin:16px auto 0;
+
+  padding-top:12px;
+
+  /* Línea separadora */
+  border-top:1px solid rgba(255,255,255,.15);
+}
+
+/* Nombre de cada integrante */
+.integrante-nombre {
+
+  font-family:'Quicksand', sans-serif;
+
+  font-size:.85rem;
+
+  color:rgba(255,255,255,.9);
+
+  font-weight:500;
+}
+
+/* ================= ETIQUETAS ================= */
+
+/* Badge o etiqueta */
+.badge {
+
+  font-size:.8rem;
+
+  padding:2px 6px;
+
+  border-radius:4px;
+}
+
+/* Rol relacionado con software */
+.software {
+  color:#979b9f;
+}
+
+/* Rol relacionado con diseño */
+.diseno {
+  color:#979b9f;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para celulares */
+@media (max-width:480px) {
+
+  .footer-integrantes {
+
+    /* Una sola columna */
+    grid-template-columns:1fr;
+
+    gap:6px;
+  }
+}

@@ -1,0 +1,329 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Reinicia margenes, padding y establece box-sizing */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Estilos generales del body */
+body{
+    font-family: 'Quicksand', sans-serif;
+    background:#f5f5f5;
+    padding-top:75px; /* Espacio para que el navbar fijo no tape el contenido */
+}
+
+/* ================= NAVBAR ================= */
+
+/* Barra superior fija */
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    height:75px;
+
+    /* Degradado verde */
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+
+    /* Sombra inferior */
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Contenedor de enlaces de navegación */
+.navbar{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+/* Estilo de enlaces */
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* Cada opcion del menu con icono y texto */
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;
+}
+
+/* Opcion activa del menu */
+.navbar a.active{
+    color:#39b54a;
+}
+
+/* Boton de cerrar sesion */
+.btn-logout{
+    background:#d79b00;
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    color:white;
+}
+
+/* Contenido centrado */
+.hero-content{
+    text-align:center;
+}
+
+/* Icono principal de administrador */
+.icon-admin{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+/* ================= HERO ================= */
+
+/* Seccion principal de bienvenida */
+.hero{
+    height:280px;
+
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+/* Titulo principal */
+.hero h1{
+    font-size:72px;
+    margin-bottom:15px;
+}
+
+/* Subtitulo */
+.hero p{
+    font-size:24px;
+    color:#b7ff65;
+}
+
+/* ================= ACTIVIDAD RECIENTE ================= */
+
+/* Contenedor principal */
+.reciente{
+    max-width:950px;
+    margin:auto;
+}
+
+/* Titulo de la seccion */
+.reciente h2{
+    color:#093a27;
+    margin-bottom:25px;
+    font-size:34px;
+}
+
+/* Tarjeta de actividad */
+.actividad{
+    background:#9df05d;
+    padding:20px;
+    border-radius:16px;
+    margin-bottom:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* Fecha de la actividad */
+.fecha{
+    font-weight:bold;
+    color:#093a27;
+}
+
+/* Descripcion de la actividad */
+.actividad p{
+    flex:1;
+    color:#093a27;
+    font-weight:600;
+}
+
+/* Boton de accion */
+.actividad button{
+    background:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:30px;
+    font-weight:bold;
+    color:#093a27;
+    cursor:pointer;
+}
+
+/* ================= LOGO ================= */
+
+/* Imagen del logo */
+.logo img{
+    width:55px;
+    height:auto;
+    object-fit:contain;
+}
+
+/* Elementos de navegacion */
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+}
+
+/* Iconos generales */
+.nav-icon{
+    width:20px;
+    height:20px;
+    object-fit:contain;
+}
+
+/* Segunda definicion de iconos */
+.nav-icon{
+    width:18px;
+    height:18px;
+    object-fit:contain;
+}
+
+/* Icono de puntos de recoleccion */
+.icon-puntos{
+    width:24px;
+    height:50px;
+    object-fit:contain;
+
+    /* Convierte el icono a color blanco */
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 0 0 white)
+        drop-shadow(0 0 0 white);
+}
+
+/* Icono de recolectores */
+.icon-rec{
+    width:26px;
+    height:60px;
+    object-fit:contain;
+
+    /* Convierte el icono a color blanco */
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 0 0 white)
+        drop-shadow(0 0 0 white);
+}
+
+/* ================= DASHBOARD ================= */
+
+/* Contenedor general del dashboard */
+.dashboard{
+    padding:50px;
+}
+
+/* ================= GRAFICA ================= */
+
+/* Tarjeta que contiene la grafica */
+.grafica-container{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    margin-bottom:40px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Titulo de la grafica */
+.grafica-container h2{
+    color:#093a27;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+/* ================= ACTIVIDAD RECIENTE ================= */
+
+/* Tarjeta de actividades */
+.actividad-reciente{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Titulo de actividades */
+.actividad-reciente h2{
+    color:#093a27;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+/* Cada registro de actividad */
+.actividad-item{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:18px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* Hora de la actividad */
+.actividad-hora{
+    background:#39b54a;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* Texto de la actividad */
+.actividad-item p{
+    color:#333;
+    font-size:16px;
+}
+
+/* ================= MAPA ================= */
+
+/* Contenedor del mapa */
+.mapa-dashboard{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    margin-top:40px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Titulo del mapa */
+.mapa-dashboard h2{
+    color:#093a27;
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+/* Iframe donde se carga el mapa */
+.iframe-mapa{
+    width:100%;
+    height:700px;
+    border:none;
+    border-radius:20px;
+}

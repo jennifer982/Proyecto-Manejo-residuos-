@@ -1,0 +1,102 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= BUSCADOR ================= */
+
+/* Contenedor principal del buscador */
+.buscador {
+  padding: 14px;
+  border-bottom: 1px solid #eeeeee; /* Línea separadora inferior */
+}
+
+/* Título del buscador */
+.buscador h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  color: #2d5a27;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ================= CAMPO DE BUSQUEDA ================= */
+
+/* Contenedor del input y el icono de lupa */
+.buscador-input-wrap {
+  position: relative;
+}
+
+/* Campo donde el usuario escribe */
+.buscador-input {
+  width: 100%;
+  padding: 7px 30px 7px 10px; /* Deja espacio para la lupa */
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333333;
+  background: #ffffff;
+}
+
+/* Estilo cuando el usuario hace clic en el input */
+.buscador-input:focus {
+  outline: none; /* Quita el borde azul por defecto */
+  border-color: #2d5a27; /* Cambia el borde a verde */
+}
+
+/* Icono de lupa */
+.buscador-icono {
+  position: absolute;
+  right: 8px; /* Lo posiciona a la derecha */
+  top: 50%;
+  transform: translateY(-50%); /* Lo centra verticalmente */
+  font-size: 14px;
+  color: #777777;
+
+  /* Evita que el icono interfiera con los clics */
+  pointer-events: none;
+}
+
+/* ================= SUGERENCIAS ================= */
+
+/* Lista desplegable que muestra resultados */
+.sugerencias {
+  border: 1px solid #cccccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background: #ffffff;
+  font-size: 13px;
+
+  /* Altura máxima antes de mostrar scroll */
+  max-height: 180px;
+
+  /* Scroll vertical automático */
+  overflow-y: auto;
+}
+
+/* Cada sugerencia individual */
+.sugerencia-item {
+  padding: 7px 10px;
+  cursor: pointer; /* Cambia el cursor a mano */
+  color: #333333;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* Elimina el borde del último elemento */
+.sugerencia-item:last-child {
+  border-bottom: none;
+}
+
+/* Efecto al pasar el mouse */
+.sugerencia-item:hover {
+  background: #e8f5e3;
+  color: #2d5a27;
+}
+
+/* ================= MENSAJE SIN RESULTADOS ================= */
+
+/* Mensaje que aparece cuando no hay coincidencias */
+.sin-resultados {
+  padding: 7px 10px;
+  color: #999999;
+  font-style: italic;
+  font-size: 12px;
+}

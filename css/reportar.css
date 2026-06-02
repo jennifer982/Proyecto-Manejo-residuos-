@@ -1,0 +1,595 @@
+/* Importa las fuentes Quicksand y Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= VARIABLES GLOBALES ================= */
+
+/* Colores, sombras y tamaños reutilizables */
+:root {
+  --verde-oscuro: #093a27;
+  --verde-medio: #0b6b39;
+  --verde-claro: #5fe254;
+  --verde-hover: #4ecc44;
+
+  --beige: #f5f0e8;
+  --gris-fondo: #f7f7f5;
+  --gris-borde: #ddd;
+
+  --texto: #1a1a1a;
+  --texto-suave: #666;
+
+  --radio: 12px;
+
+  --sombra: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Reinicio general */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+/* Configuración principal */
+body{
+  font-family:'Quicksand', sans-serif;
+  background:var(--gris-fondo);
+  color:var(--texto);
+}
+
+/* ================= HERO ================= */
+
+/* Encabezado de la página */
+.hero-reportar{
+
+  background:linear-gradient(
+    135deg,
+    var(--verde-oscuro) 0%,
+    var(--verde-medio) 100%
+  );
+
+  color:white;
+
+  text-align:center;
+
+  padding:32px 24px 28px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:flex-start;
+
+  justify-content:center;
+}
+
+/* Círculo decorativo */
+.hero-reportar::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:-40px;
+  right:-40px;
+
+  width:200px;
+  height:200px;
+
+  border-radius:50%;
+
+  background:rgba(95,226,84,0.08);
+}
+
+/* Contenedor interno */
+.hero-reportar-inner{
+
+  max-width:740px;
+
+  width:100%;
+
+  margin:0 auto;
+}
+
+/* Título */
+.hero-reportar h1{
+
+  font-size:24px;
+
+  font-weight:700;
+
+  color:white;
+
+  margin-bottom:10px;
+}
+
+/* Descripción */
+.hero-reportar p{
+
+  font-size:14px;
+
+  color:rgba(255,255,255,.8);
+}
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+
+.contenedor-reporte{
+
+  max-width:780px;
+
+  margin:40px auto 60px;
+
+  padding:0 20px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:28px;
+}
+
+/* ================= TARJETAS ================= */
+
+/* Sección individual */
+.seccion-card{
+
+  background:white;
+
+  border-radius:var(--radio);
+
+  padding:32px;
+
+  box-shadow:var(--sombra);
+}
+
+/* Título de sección */
+.seccion-card h3{
+
+  font-size:.75rem;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  color:var(--verde-oscuro);
+
+  border-bottom:2px solid var(--verde-claro);
+
+  display:inline-block;
+}
+
+/* ================= CAMPOS ================= */
+
+/* Contenedor de campo */
+.campo{
+
+  margin-bottom:20px;
+}
+
+/* Etiquetas */
+.campo label{
+
+  display:block;
+
+  font-size:.85rem;
+
+  font-weight:600;
+
+  color:var(--verde-oscuro);
+
+  margin-bottom:8px;
+}
+
+/* Inputs, textarea y select */
+.campo input[type="text"],
+.campo textarea,
+.campo select{
+
+  width:100%;
+
+  padding:12px 14px;
+
+  border:1.5px solid var(--gris-borde);
+
+  border-radius:8px;
+
+  background:#fafafa;
+
+  font-family:'Quicksand', sans-serif;
+
+  transition:border-color .2s, box-shadow .2s;
+}
+
+/* Cuando reciben foco */
+.campo input[type="text"]:focus,
+.campo textarea:focus,
+.campo select:focus{
+
+  border-color:var(--verde-claro);
+
+  box-shadow:0 0 0 3px rgba(95,226,84,.15);
+
+  background:white;
+}
+
+/* Área de texto */
+.campo textarea{
+
+  resize:vertical;
+
+  min-height:100px;
+}
+
+/* ================= MAPA ================= */
+
+/* Mini mapa para seleccionar ubicación */
+#mini-mapa{
+
+  height:340px;
+
+  border-radius:10px;
+
+  border:1.5px solid var(--gris-borde);
+
+  overflow:hidden;
+}
+
+/* Coordenadas válidas */
+.coords-ok{
+
+  font-size:.8rem;
+
+  color:var(--verde-medio);
+
+  font-weight:600;
+
+  display:none;
+}
+
+/* ================= TIPOS DE RESIDUOS ================= */
+
+/* Cuadrícula de residuos */
+.tipos-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:12px;
+}
+
+/* Botón de selección */
+.tipo-btn{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:6px;
+
+  padding:14px 8px;
+
+  border:2px solid var(--gris-borde);
+
+  border-radius:10px;
+
+  background:#fafafa;
+
+  cursor:pointer;
+}
+
+/* Hover */
+.tipo-btn:hover{
+
+  border-color:var(--verde-claro);
+
+  background:#f0fdf0;
+}
+
+/* Seleccionado */
+.tipo-btn.seleccionado{
+
+  border-color:var(--verde-medio);
+
+  background:#e8f8e8;
+}
+
+/* Iconos */
+.icono-svg{
+
+  width:36px;
+
+  height:36px;
+
+  object-fit:contain;
+}
+
+/* Oculta el select original */
+#tipo-residuo{
+
+  display:none;
+}
+
+/* ================= SLIDER DE RIESGO ================= */
+
+/* Barra de riesgo */
+.slider-riesgo{
+
+  width:100%;
+
+  height:6px;
+
+  border-radius:4px;
+
+  background:linear-gradient(
+      to right,
+      #5fe254,
+      #f0c040,
+      #e25454
+  );
+}
+
+/* Círculo del slider */
+.slider-riesgo::-webkit-slider-thumb{
+
+  width:22px;
+
+  height:22px;
+
+  border-radius:50%;
+
+  background:white;
+
+  border:3px solid var(--verde-medio);
+}
+
+/* Etiquetas */
+.labels-riesgo{
+
+  display:flex;
+
+  justify-content:space-between;
+}
+
+/* Descripción de riesgo */
+.riesgo-desc{
+
+  margin-top:10px;
+
+  padding:10px 14px;
+
+  border-left:3px solid var(--verde-claro);
+
+  background:#f0fdf0;
+
+  display:none;
+}
+
+/* ================= FOTOS ================= */
+
+/* Contenedor de imágenes */
+.fotos-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:12px;
+}
+
+/* Área para subir foto */
+.foto-label{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border:2px dashed var(--gris-borde);
+
+  border-radius:10px;
+
+  padding:20px 10px;
+
+  cursor:pointer;
+}
+
+/* Hover */
+.foto-label:hover{
+
+  border-color:var(--verde-claro);
+
+  background:#f0fdf0;
+}
+
+/* Oculta input file */
+.foto-label input[type="file"]{
+
+  position:absolute;
+
+  opacity:0;
+}
+
+/* Vista previa */
+.foto-preview{
+
+  width:100%;
+
+  height:80px;
+
+  object-fit:cover;
+
+  border-radius:6px;
+
+  display:none;
+}
+
+/* ================= BOTON ENVIAR ================= */
+
+/* Botón principal */
+.btn-enviar{
+
+  width:100%;
+
+  padding:16px;
+
+  background:var(--verde-claro);
+
+  color:white;
+
+  border:none;
+
+  border-radius:10px;
+
+  font-size:1rem;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  box-shadow:0 4px 14px rgba(95,226,84,.35);
+}
+
+/* Hover */
+.btn-enviar:hover{
+
+  background:var(--verde-hover);
+
+  transform:translateY(-1px);
+}
+
+/* Deshabilitado */
+.btn-enviar:disabled{
+
+  background:#aaa;
+
+  cursor:not-allowed;
+}
+
+/* ================= MENSAJE DE EXITO ================= */
+
+.mensaje-exito{
+
+  text-align:center;
+
+  padding:40px 20px;
+
+  background:white;
+
+  border-radius:var(--radio);
+
+  box-shadow:var(--sombra);
+}
+
+/* Título */
+.mensaje-exito h3{
+
+  color:var(--verde-oscuro);
+
+  font-size:1.4rem;
+}
+
+/* Botones de confirmación */
+.boton-primario{
+
+  background:var(--verde-claro);
+
+  color:white;
+}
+
+.boton-secundario{
+
+  background:white;
+
+  color:var(--verde-oscuro);
+
+  border:2px solid var(--verde-oscuro);
+}
+
+/* ================= BUSCADOR ================= */
+
+/* Campo de búsqueda */
+.buscador-input{
+
+  width:100%;
+
+  padding:10px 14px;
+
+  border:1.5px solid var(--gris-borde);
+
+  border-radius:8px;
+}
+
+/* Focus */
+.buscador-input:focus{
+
+  border-color:var(--verde-claro);
+
+  box-shadow:0 0 0 3px rgba(95,226,84,.15);
+}
+
+/* Lista de sugerencias */
+.sugerencias{
+
+  background:white;
+
+  border:1px solid var(--gris-borde);
+
+  border-radius:8px;
+
+  max-height:200px;
+
+  overflow-y:auto;
+}
+
+/* Elemento sugerido */
+.sugerencia-item{
+
+  padding:10px 14px;
+
+  cursor:pointer;
+}
+
+/* Hover */
+.sugerencia-item:hover{
+
+  background:#f0fdf0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para celulares */
+@media(max-width:600px){
+
+  .tipos-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .fotos-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-reportar h1{
+    font-size:1.6rem;
+  }
+}
+
+/* Contenedor principal */
+#contenido-principal{
+  min-height:200px;
+}
+
+/* Confirmación */
+#mensaje-confirmacion{
+  max-width:780px;
+  margin:40px auto 60px;
+  padding:0 20px;
+}

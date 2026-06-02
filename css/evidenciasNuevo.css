@@ -1,0 +1,346 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* Reinicio general de estilos */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Configuración general de la página */
+body{
+    font-family:'Quicksand', sans-serif;
+    background:#f5f5f5;
+    padding-top:75px; /* Espacio para el navbar fijo */
+}
+
+/* ================= NAVBAR ================= */
+
+/* Barra superior fija */
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    height:75px;
+
+    /* Fondo con degradado */
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* Menú de navegación */
+.navbar{
+    display:flex;
+    gap:35px;
+}
+
+/* Enlaces del menú */
+.navbar a{
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* Opción activa */
+.navbar a.active{
+    color:#39b54a;
+}
+
+/* Botón cerrar sesión */
+.btn-logout{
+    background:#d79b00;
+    border:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    color:white;
+}
+
+/* ================= HERO ================= */
+
+/* Encabezado principal */
+.hero{
+    height:280px;
+
+    background:linear-gradient(
+        90deg,
+        #093a27,
+        #0b6b39
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+/* Centra el contenido */
+.hero-content{
+    text-align:center;
+}
+
+/* Icono principal */
+.icon-evidencias{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+/* Título principal */
+.hero h1{
+    font-size:64px;
+    letter-spacing:4px;
+}
+
+/* Subtítulo */
+.hero p{
+    margin-top:15px;
+    font-size:22px;
+    color:#b7ff65;
+}
+
+/* ================= DASHBOARD ================= */
+
+/* Contenedor principal */
+.dashboard{
+    padding:60px 40px;
+}
+
+/* ================= TABLA ================= */
+
+/* Tarjeta que contiene la tabla */
+.tabla-container{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    overflow-x:auto; /* Scroll horizontal si es necesario */
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Título de la tabla */
+.titulo-tabla{
+    color:#093a27;
+    margin-bottom:25px;
+    text-align:center;
+    font-size:34px;
+}
+
+/* Tabla general */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+/* Encabezado */
+thead{
+    background:#093a27;
+    color:white;
+}
+
+/* Columnas del encabezado */
+th{
+    padding:18px;
+    text-align:center;
+}
+
+/* Celdas de información */
+td{
+    padding:16px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+/* ================= BOTONES ================= */
+
+/* Estilo base para todos los botones */
+button{
+    color:white;
+    border:none;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Efecto general para botones de tabla */
+.btn-tabla:hover{
+    transform:translateY(-1px);
+    box-shadow:0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Botón Ver evidencia */
+.btn-ver{
+    background-color:#0b62e5;
+}
+
+.btn-ver:hover{
+    background-color:#0a55c5;
+}
+
+/* Botón Aceptar evidencia */
+.btn-aceptar{
+    background-color:#16b93c;
+}
+
+.btn-aceptar:hover{
+    background-color:#159c34;
+}
+
+/* Botón Rechazar evidencia */
+.btn-rechazar{
+    background-color:#c9303f;
+}
+
+.btn-rechazar:hover{
+    background-color:#a82835;
+}
+
+/* Efecto general */
+button:hover{
+    opacity:.9;
+}
+
+/* ================= MODAL DE IMAGEN ================= */
+
+/* Fondo oscuro para visualizar evidencia */
+.modal-img{
+    display:none; /* Oculto inicialmente */
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.85);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+/* Imagen ampliada */
+.modal-img img{
+    max-width:85%;
+    max-height:85%;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para celulares */
+@media(max-width:768px){
+
+    .topbar{
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+        gap:15px;
+    }
+
+    .navbar{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero{
+        height:auto;
+        padding:60px 20px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .dashboard{
+        padding:20px;
+    }
+
+    /* Mantiene el tamaño mínimo de la tabla */
+    table{
+        min-width:700px;
+    }
+
+    .titulo-tabla{
+        font-size:26px;
+    }
+}
+
+/* ================= LOGO ================= */
+
+/* Logo del sistema */
+.logo img{
+    width:55px;
+    height:auto;
+    object-fit:contain;
+}
+
+/* ================= ICONOS NAVBAR ================= */
+
+/* Elementos del menú */
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* Iconos generales */
+.nav-icon{
+    width:18px;
+    height:18px;
+    object-fit:contain;
+}
+
+/* Icono de puntos */
+.icon-puntos{
+    width:24px;
+    height:50px;
+    object-fit:contain;
+
+    /* Convierte el icono a blanco */
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 0 0 white)
+        drop-shadow(0 0 0 white);
+}
+
+/* Icono de recolectores */
+.icon-rec{
+    width:26px;
+    height:60px;
+    object-fit:contain;
+
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 0 0 white)
+        drop-shadow(0 0 0 white);
+}

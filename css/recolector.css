@@ -1,0 +1,472 @@
+/* Importa las fuentes Quicksand y Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= VARIABLES GLOBALES ================= */
+
+/* Colores reutilizables */
+:root {
+  --verde:   #233E5E;
+  --naranja: #1CD146;
+  --fondo:   #f4f4f4;
+  --blanco:  #ffffff;
+  --texto:   #333333;
+  --gris:    #777777;
+}
+
+/* ================= PANEL PRINCIPAL ================= */
+
+/* Contenedor general del panel del recolector */
+#seccion-panel-recolector {
+
+  background-color: var(--fondo);
+
+  padding: 20px;
+
+  max-width: 860px;
+
+  margin: 0 auto;
+}
+
+/* ================= ENCABEZADO ================= */
+
+/* Cabecera del panel */
+.panel-encabezado {
+
+  background-color: var(--verde);
+
+  color: var(--blanco);
+
+  padding: 16px 20px;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 16px;
+}
+
+/* Nombre del recolector */
+#nombre-recolector {
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: var(--blanco);
+}
+
+/* Zona asignada */
+#zona-recolector {
+
+  font-size: 13px;
+
+  color: #c8e6c3;
+
+  margin-top: 2px;
+}
+
+/* Estadísticas rápidas */
+.panel-estadisticas {
+
+  display: flex;
+
+  gap: 20px;
+}
+
+/* Cada estadística */
+.mini-stat {
+
+  text-align: center;
+}
+
+/* Número */
+.mini-stat span:first-child {
+
+  display: block;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  color: #f0874a;
+}
+
+/* Texto */
+.mini-stat span:last-child {
+
+  font-size: 11px;
+
+  color: #c8e6c3;
+}
+
+/* ================= PESTAÑAS ================= */
+
+/* Contenedor de tabs */
+.tabs {
+
+  display: flex;
+
+  gap: 6px;
+
+  margin-bottom: 14px;
+
+  flex-wrap: wrap;
+}
+
+/* Botón de pestaña */
+.tab {
+
+  padding: 7px 16px;
+
+  border: 1px solid var(--verde);
+
+  background-color: var(--blanco);
+
+  color: var(--verde);
+
+  border-radius: 4px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+/* Tab activa */
+.tab.activo {
+
+  background-color: var(--verde);
+
+  color: var(--blanco);
+}
+
+/* ================= FILTROS ================= */
+
+/* Filtros rápidos */
+.filtro-rapido {
+
+  display: flex;
+
+  gap: 6px;
+
+  margin-bottom: 14px;
+
+  flex-wrap: wrap;
+}
+
+/* Botón de filtro */
+.filtro-chip {
+
+  padding: 4px 12px;
+
+  border-radius: 4px;
+
+  border: 1px solid #cccccc;
+
+  background-color: var(--blanco);
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+/* Colores según urgencia */
+.filtro-chip.urgencia-alta {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+.filtro-chip.urgencia-media {
+  border-color: var(--naranja);
+  color: var(--naranja);
+}
+
+.filtro-chip.urgencia-baja {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+/* ================= LISTA DE REPORTES ================= */
+
+/* Contenedor de reportes */
+.lista-reportes-recolector {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+/* Tarjeta de reporte */
+.tarjeta-reporte {
+
+  background-color: var(--blanco);
+
+  border-left: 4px solid #cccccc;
+
+  padding: 14px 16px;
+
+  border-radius: 4px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* Color según prioridad */
+.tarjeta-reporte.alta {
+  border-left-color: #c0392b;
+}
+
+.tarjeta-reporte.media {
+  border-left-color: var(--naranja);
+}
+
+.tarjeta-reporte.baja {
+  border-left-color: var(--verde);
+}
+
+/* Título del reporte */
+.tarjeta-titulo {
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  color: var(--texto);
+
+  margin-bottom: 3px;
+}
+
+/* Ubicación */
+.tarjeta-ubicacion {
+
+  font-size: 12px;
+
+  color: var(--gris);
+
+  margin-bottom: 6px;
+}
+
+/* Contenedor de etiquetas */
+.tarjeta-meta {
+
+  display: flex;
+
+  gap: 6px;
+
+  flex-wrap: wrap;
+}
+
+/* ================= BADGES ================= */
+
+/* Etiqueta base */
+.badge {
+
+  font-size: 11px;
+
+  padding: 2px 8px;
+
+  border-radius: 3px;
+
+  background-color: #eeeeee;
+
+  color: #555555;
+}
+
+/* Badge prioridad alta */
+.badge-alta {
+
+  background-color: #fde8e8;
+
+  color: #c0392b;
+}
+
+/* Badge prioridad media */
+.badge-media {
+
+  background-color: #fdebd6;
+
+  color: var(--naranja);
+}
+
+/* Badge prioridad baja */
+.badge-baja {
+
+  background-color: #e8f5e3;
+
+  color: var(--verde);
+}
+
+/* ================= BOTONES ================= */
+
+/* Botón aceptar reporte */
+.boton-aceptar {
+
+  background-color: var(--verde);
+
+  color: var(--blanco);
+
+  border: none;
+
+  border-radius: 4px;
+
+  padding: 8px 14px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+/* Botón resolver reporte */
+.boton-resolver {
+
+  background-color: var(--naranja);
+
+  color: var(--blanco);
+
+  border: none;
+
+  border-radius: 4px;
+
+  padding: 8px 14px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+/* ================= MENSAJE VACIO ================= */
+
+/* Texto cuando no hay reportes */
+.placeholder-texto {
+
+  color: #999999;
+
+  font-style: italic;
+
+  font-size: 14px;
+
+  padding: 16px 0;
+
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+
+  .panel-encabezado {
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .tarjeta-reporte {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .boton-aceptar,
+  .boton-resolver {
+
+    width: 100%;
+
+    text-align: center;
+  }
+}
+
+/* ================= NAVBAR ================= */
+
+/* Barra de navegación */
+.navbar {
+
+    background-color: rgba(46, 105, 51, 0.734);
+
+    padding: 15px 0;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Contenedor interno */
+.nav-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 20px;
+}
+
+/* Lados izquierdo y derecho */
+.nav-left,
+.nav-right {
+
+    display: flex;
+
+    gap: 15px;
+}
+
+/* Enlaces */
+.nav-link {
+
+    color: #f4f7f4;
+
+    text-decoration: none;
+
+    padding: 12px 24px;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    border-radius: 12px;
+
+    transition: all 0.3s ease;
+
+    display: inline-block;
+}
+
+/* Hover */
+.nav-link:hover {
+
+    background-color: #bc8f4f;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+/* Opción activa */
+.nav-link.active {
+
+    background-color: rgba(255,255,255,0.2);
+}

@@ -1,0 +1,283 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= BODY ================= */
+
+/* Configuración general de la página */
+body {
+
+    font-family:'Quicksand', sans-serif;
+
+    margin:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+    background-color:#1a2f1f;
+
+    /* Imagen de fondo */
+    background-image:url('../img/css/tabiqueNaranja.jpg');
+
+    background-size:cover;
+}
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+
+/* Centra el formulario en pantalla */
+.login-wrapper {
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:20px;
+}
+
+/* Caja principal del login */
+.login-container {
+
+    background:#ffffff;
+
+    padding:40px 30px;
+
+    border-radius:10px;
+
+    width:150%;
+
+    max-width:400px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:10;
+}
+
+/* ================= TITULOS ================= */
+
+/* Título principal */
+h2 {
+
+    color:#1a2f1f;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+    font-size:1.8rem;
+}
+
+/* Texto descriptivo */
+p {
+
+    color:#555;
+
+    font-size:0.9rem;
+
+    margin-bottom:20px;
+}
+
+/* ================= INPUTS ================= */
+
+/* Grupo de campos */
+.input-group {
+
+    margin-bottom:15px;
+}
+
+/* Campos de texto */
+input {
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background-color:#eafde8;
+
+    color:#333;
+
+    outline:none;
+
+    box-sizing:border-box;
+
+    font-size:0.95rem;
+}
+
+/* Cuando el usuario selecciona un campo */
+input:focus {
+
+    background-color:#dff5dc;
+
+    box-shadow:0 0 0 2px #6bff88;
+}
+
+/* ================= BOTON LOGIN ================= */
+
+/* Botón principal */
+button {
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background-color:#6aff6a;
+
+    color:#1a2f1f;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:all 0.3s ease;
+
+    margin-top:10px;
+
+    margin-bottom:10px;
+}
+
+/* Hover del botón */
+button:hover {
+
+    background-color:#50e050;
+
+    transform:scale(1.02);
+}
+
+/* ================= ENLACES ================= */
+
+/* Recuperar contraseña */
+.forgot-password {
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#1a2f1f;
+
+    font-size:0.8rem;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    opacity:0.7;
+}
+
+/* Hover */
+.forgot-password:hover {
+
+    text-decoration:underline;
+
+    opacity:1;
+}
+
+/* ================= MENSAJES ================= */
+
+/* Mensaje oculto */
+.message {
+
+    margin-top:15px;
+
+    padding:10px;
+
+    border-radius:4px;
+
+    display:none;
+}
+
+/* Mensaje de éxito */
+.message.success {
+
+    background-color:#d4edda;
+
+    color:#155724;
+
+    border:1px solid #c3e6cb;
+}
+
+/* Mensaje de error */
+.message.error {
+
+    background-color:#f8d7da;
+
+    color:#721c24;
+
+    border:1px solid #f5c6cb;
+}
+
+/* ================= LOADING ================= */
+
+/* Indicador de carga */
+.loading {
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:#1a2f1f;
+
+    display:none;
+}
+
+/* Mostrar loading */
+.loading.active {
+
+    display:block;
+}
+
+/* ================= LOGO ================= */
+
+/* Imagen del logo */
+.login-logo img {
+
+    width:80px;
+
+    margin-bottom:20px;
+
+    /* filter: brightness(0) invert(0); */
+}
+
+/* Contenedor logo + formulario */
+.login-group {
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+/* ================= CAMPOS EXTRA ================= */
+
+/* Campo adicional */
+.campo {
+
+    margin-top:30px;
+
+    margin-bottom:30px;
+
+    font-size:0.9rem;
+}

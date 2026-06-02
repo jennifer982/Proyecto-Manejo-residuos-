@@ -1,0 +1,457 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= CONFIGURACION GENERAL ================= */
+
+/* Reinicio de estilos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Configuración principal de la página */
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #f4f4f4;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+/* ================= BARRA SUPERIOR ================= */
+
+/* Línea decorativa amarilla */
+.barra-top {
+  background: #fff0c4;
+  height: 6px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ================= BOTONES DEL NAVBAR ================= */
+
+/* Contenedor derecho */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  position: absolute;
+  right: 16px;
+}
+
+/* Botones generales */
+.nav-btn {
+  font-family: 'Quicksand', sans-serif;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  padding: 7px 18px;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: all 0.2s;
+
+  border: 2px solid transparent;
+}
+
+/* Botón Registrarse */
+.nav-btn-registro {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+/* Hover registrarse */
+.nav-btn-registro:hover {
+  background: white;
+  color: #093a27;
+}
+
+/* Botón Iniciar Sesión */
+.nav-btn-sesion {
+  background: #5fe254;
+  color: #093a27;
+  border-color: #5fe254;
+}
+
+/* Hover iniciar sesión */
+.nav-btn-sesion:hover {
+  background: #4acc44;
+  border-color: #4acc44;
+}
+
+/* ================= LAYOUT PRINCIPAL ================= */
+
+/* Divide la pantalla entre panel y mapa */
+.layout-mapa {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ================= PANEL LATERAL ================= */
+
+/* Menú lateral de reportes */
+.panel-lateral {
+
+  width: 320px;
+
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+
+  overflow-x: visible;
+}
+
+/* Scroll personalizado */
+.panel-lateral::-webkit-scrollbar {
+  width: 4px;
+}
+
+.panel-lateral::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.panel-lateral::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 2px;
+}
+
+/* ================= SECCIONES ================= */
+
+/* Cada bloque del panel */
+.panel-lateral section {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Títulos */
+.panel-lateral h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #093a27;
+  margin-bottom: 14px;
+}
+
+/* ================= BUSCADOR ================= */
+
+/* Contenedor del input */
+.buscador-input-wrap {
+  position: relative;
+}
+
+/* Campo de búsqueda */
+.buscador-input {
+  width: 100%;
+
+  padding: 10px 14px;
+
+  border: 1px solid #b4b4b4;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  color: #333;
+
+  transition: border-color 0.2s;
+}
+
+/* Cuando se selecciona */
+.buscador-input:focus {
+  border-color: #5fe254;
+  outline: none;
+}
+
+/* Lista de sugerencias */
+.sugerencias {
+
+  position: fixed;
+
+  width: 280px;
+
+  left: 20px;
+}
+
+/* Elemento sugerido */
+.sugerencia-item {
+  padding: 10px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Hover sugerencia */
+.sugerencia-item:hover {
+  background: #f0faf0;
+  color: #093a27;
+}
+
+/* Mensaje sin resultados */
+.sin-resultados {
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #999;
+}
+
+/* ================= FILTROS ================= */
+
+/* Campo de filtro */
+.campo {
+  margin-bottom: 12px;
+}
+
+/* Etiquetas */
+.campo label {
+  display: block;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 13px;
+
+  margin-bottom: 6px;
+}
+
+/* Select */
+.campo select {
+
+  width: 100%;
+
+  padding: 10px 14px;
+
+  border: 1px solid #b4b4b4;
+
+  border-radius: 10px;
+
+  appearance: none;
+
+  cursor: pointer;
+}
+
+/* Cuando recibe foco */
+.campo select:focus {
+  border-color: #5fe254;
+}
+
+/* Botón general */
+.boton {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 11px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  border: none;
+}
+
+/* Botón secundario */
+.boton-secundario {
+
+  background: #65d432;
+
+  color: white;
+
+  margin-top: 4px;
+}
+
+/* Hover */
+.boton-secundario:hover {
+  background: #54b829;
+}
+
+/* ================= REPORTES ================= */
+
+/* Lista de reportes */
+.lista-reportes {
+  flex: 1;
+}
+
+/* Texto cuando no hay datos */
+.placeholder-texto {
+  font-size: 13px;
+  color: #999;
+  text-align: center;
+}
+
+/* Tarjeta de reporte */
+.reporte-item {
+
+  background: #eeeeee;
+
+  border-radius: 10px;
+
+  padding: 12px 14px;
+
+  margin-bottom: 10px;
+
+  cursor: pointer;
+
+  border-left: 3px solid transparent;
+
+  box-shadow: 2px 2px 0 #c5c5c5;
+}
+
+/* Hover del reporte */
+.reporte-item:hover {
+
+  border-left-color: #5fe254;
+
+  background: #e8f5e3;
+
+  transform: translateX(2px);
+}
+
+/* Título */
+.reporte-item-titulo {
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #093a27;
+}
+
+/* Ubicación */
+.reporte-item-lugar {
+
+  font-size: 12px;
+
+  color: #999;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+}
+
+/* Icono de ubicación */
+.reporte-item-lugar::before {
+
+  content: '';
+
+  display: inline-block;
+
+  width: 10px;
+
+  height: 14px;
+
+  background-repeat: no-repeat;
+
+  background-size: contain;
+}
+
+/* ================= MAPA ================= */
+
+/* Contenedor del mapa */
+.seccion-mapa {
+  flex: 1;
+  position: relative;
+}
+
+/* Mapa principal */
+.mapa-principal {
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= FOOTER ================= */
+
+/* Pie de página */
+.footer-mapa {
+
+  background: #093a27;
+
+  color: white;
+
+  padding: 28px 48px;
+
+  display: grid;
+
+  grid-template-columns:
+      auto
+      1fr
+      1fr;
+
+  gap: 40px;
+
+  align-items: start;
+}
+
+/* Logo */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo img {
+  height: 40px;
+}
+
+/* Texto del logo */
+.footer-logo span {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Títulos de columnas */
+.footer-col h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Lista */
+.footer-col ul {
+  list-style: none;
+}
+
+/* Elementos */
+.footer-col ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #cde8c5;
+}
+
+/* Enlaces */
+.footer-col ul li a {
+  color: #cde8c5;
+  text-decoration: none;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+/* Hover enlaces */
+.footer-col ul li a:hover {
+  color: #5fe254;
+}

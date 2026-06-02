@@ -1,0 +1,378 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= BODY ================= */
+
+/* Configuración general de la página */
+body {
+
+    font-family:'Quicksand', sans-serif;
+
+    margin:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+    background-color:#1a2f1f;
+
+    /* Imagen de fondo */
+    background-image:url('../img/css/tabiqueNaranja.jpg');
+
+    background-size:cover;
+}
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+
+/* Centra el formulario en pantalla */
+.login-wrapper {
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:20px;
+}
+
+/* Caja principal del formulario */
+.login-container {
+
+    background:#ffffff;
+
+    padding:40px 30px;
+
+    border-radius:10px;
+
+    width:100%;
+
+    max-width:650px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:10;
+
+    box-sizing:border-box;
+}
+
+/* ================= TITULOS ================= */
+
+/* Título principal */
+h2 {
+
+    color:#1a2f1f;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+    font-size:1.8rem;
+}
+
+/* Texto descriptivo */
+p {
+
+    color:#555;
+
+    font-size:0.9rem;
+
+    margin-bottom:20px;
+}
+
+/* ================= INPUTS ================= */
+
+/* Grupo de campos */
+.input-group {
+
+    margin-bottom:15px;
+}
+
+/* Campos de texto */
+input {
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background-color:#eafde8;
+
+    color:#333;
+
+    outline:none;
+
+    font-size:0.95rem;
+
+    box-sizing:border-box;
+}
+
+/* Cuando el usuario selecciona un input */
+input:focus {
+
+    background-color:#dff5dc;
+
+    box-shadow:0 0 0 2px #6bff88;
+}
+
+/* ================= BOTON PRINCIPAL ================= */
+
+/* Botón de registro */
+button {
+
+    width:100%;
+
+    max-width:300px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background-color:#6aff6a;
+
+    color:#1a2f1f;
+
+    font-size:1.1rem;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:all 0.3s ease;
+
+    margin:20px auto 10px auto;
+
+    display:block;
+}
+
+/* Efecto hover */
+button:hover {
+
+    background-color:#50e050;
+
+    transform:scale(1.02);
+}
+
+/* ================= ENLACES ================= */
+
+/* Enlace de recuperación */
+.forgot-password {
+
+    display:block;
+
+    margin-top:15px;
+
+    color:#1a2f1f;
+
+    font-size:0.8rem;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    opacity:0.7;
+}
+
+/* Hover */
+.forgot-password:hover {
+
+    text-decoration:underline;
+
+    opacity:1;
+}
+
+/* ================= MENSAJES ================= */
+
+/* Mensaje oculto inicialmente */
+.message {
+
+    margin-top:15px;
+
+    padding:10px;
+
+    border-radius:4px;
+
+    display:none;
+}
+
+/* Mensaje exitoso */
+.message.success {
+
+    background-color:#d4edda;
+
+    color:#155724;
+
+    border:1px solid #c3e6cb;
+}
+
+/* Mensaje de error */
+.message.error {
+
+    background-color:#f8d7da;
+
+    color:#721c24;
+
+    border:1px solid #f5c6cb;
+}
+
+/* ================= LOADING ================= */
+
+/* Indicador de carga */
+.loading {
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:#1a2f1f;
+
+    display:none;
+}
+
+/* Mostrar loading */
+.loading.active {
+
+    display:block;
+}
+
+/* ================= LOGO ================= */
+
+/* Imagen del logo */
+.login-logo img {
+
+    width:80px;
+
+    margin-bottom:20px;
+
+    /* filter: brightness(0) invert(0); */
+}
+
+/* Contenedor logo + formulario */
+.login-group {
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+/* ================= CAMPOS PDF ================= */
+
+/* Campo individual */
+.campo {
+
+    margin:0;
+
+    font-size:0.9rem;
+}
+
+/* Contenedor de documentos PDF */
+.pdf-grid-container {
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin:25px 0;
+
+    text-align:left;
+}
+
+/* Tarjetas de documentos */
+.pdf-grid-container .campo {
+
+    background:#f8fbf8;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    border:1px solid #e2efe2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    box-sizing:border-box;
+}
+
+/* El quinto documento ocupa dos columnas */
+.pdf-grid-container .campo:nth-child(5) {
+
+    grid-column:span 2;
+
+    width:100%;
+}
+
+/* Título del documento */
+.pdf-grid-container .campo h3 {
+
+    font-size:0.9rem;
+
+    font-weight:600;
+
+    margin-top:0;
+
+    margin-bottom:12px;
+
+    line-height:1.4;
+
+    color:#1a2f1f;
+}
+
+/* Input para subir archivos */
+.pdf-grid-container .campo input[type="file"] {
+
+    width:100%;
+
+    font-size:0.85rem;
+
+    cursor:pointer;
+
+    background-color:#eafde8;
+
+    padding:8px;
+
+    border-radius:6px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para celulares */
+@media(max-width:768px){
+
+    .pdf-grid-container {
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    /* El quinto elemento vuelve a ocupar una sola columna */
+    .pdf-grid-container .campo:nth-child(5){
+
+        grid-column:span 1;
+    }
+}

@@ -1,0 +1,463 @@
+/* Importa las fuentes Quicksand y Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= VARIABLES GLOBALES ================= */
+
+:root {
+    --verde-oscuro: #093a27;
+    --verde-medio: #0b6b39;
+    --verde-claro: #5fe254;
+    --fondo: #f0f2f0;
+    --blanco: #ffffff;
+    --texto: #1a1a1a;
+    --gris: #6b7280;
+    --gris-claro: #e5e7eb;
+}
+
+/* ================= BODY ================= */
+
+body {
+    background: var(--fondo);
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+
+/* Contenedor general del panel */
+.recolector-container {
+    display: flex;
+    flex: 1;
+    padding: 24px;
+}
+
+/* Área principal de contenido */
+.recolector-main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* ================= TARJETAS RESUMEN ================= */
+
+/* Contenedor de estadísticas */
+.cards-resumen {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+/* Tarjeta individual */
+.card-resumen {
+
+    background: var(--blanco);
+
+    border-radius: 12px;
+
+    padding: 20px 16px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+
+    border-top: 4px solid var(--verde-medio);
+
+    transition: transform 0.2s;
+}
+
+/* Efecto hover */
+.card-resumen:hover {
+    transform: translateY(-3px);
+}
+
+/* Etiqueta */
+.card-resumen p.label {
+    font-size: 13px;
+    color: var(--gris);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Valor */
+.card-resumen p.valor {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+}
+
+/* ================= TABLA ================= */
+
+/* Contenedor de tabla */
+.tabla-box {
+
+    background: var(--blanco);
+
+    border-radius: 12px;
+
+    border: 1px solid var(--gris-claro);
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Encabezado */
+.tabla-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--gris-claro);
+}
+
+/* Título */
+.tabla-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--verde-oscuro);
+}
+
+/* Tabla */
+.tabla-box table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Encabezados */
+.tabla-box th {
+
+    padding: 12px 14px;
+
+    background: var(--verde-oscuro);
+
+    color: white;
+
+    text-transform: uppercase;
+}
+
+/* Celdas */
+.tabla-box td {
+
+    padding: 12px 14px;
+
+    border-bottom: 1px solid var(--gris-claro);
+
+    color: var(--texto);
+}
+
+/* Hover */
+.tabla-box tr:hover {
+    background: #f7fff1;
+}
+
+/* ================= BADGES ================= */
+
+/* Etiqueta base */
+.badge {
+
+    padding: 4px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+/* Estados */
+.badge-pendiente{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.badge-aceptado{
+    background:#d1fae5;
+    color:#065f46;
+}
+
+.badge-rechazado{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+/* Prioridades */
+.badge-alto{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.badge-medio{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.badge-bajo{
+    background:#d1fae5;
+    color:#065f46;
+}
+
+/* ================= BOTONES ================= */
+
+/* Contenedor de acciones */
+.acciones{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+/* Botón aceptar */
+.btn-aceptar{
+
+    background: var(--verde-medio);
+
+    color:white;
+
+    border:none;
+
+    padding:6px 12px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+}
+
+/* Hover */
+.btn-aceptar:hover{
+    background:#0a7d42;
+}
+
+/* Botón rechazar */
+.btn-rechazar{
+
+    background:#dc3545;
+
+    color:white;
+
+    border:none;
+
+    padding:6px 12px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+}
+
+.btn-rechazar:hover{
+    background:#b02a37;
+}
+
+/* Botón ver */
+.btn-ver{
+
+    background: var(--verde-oscuro);
+
+    color:white;
+
+    border:none;
+
+    padding:6px 12px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+}
+
+.btn-ver:hover{
+    background:#0a5236;
+}
+
+/* ================= LOGOUT ================= */
+
+/* Botón cerrar sesión */
+.btn-logout{
+
+    background:#d79b00;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:30px;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+.btn-logout:hover{
+    background:#c48a00;
+}
+
+/* ================= PERFIL ================= */
+
+/* Tarjeta del perfil */
+.perfil-box{
+
+    background: var(--blanco);
+
+    border-radius:12px;
+
+    border:1px solid var(--gris-claro);
+
+    padding:24px;
+}
+
+/* Título */
+.perfil-box h2{
+    color: var(--verde-oscuro);
+}
+
+/* Formulario de perfil */
+.perfil-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:16px;
+}
+
+/* Etiquetas */
+.perfil-grid label,
+.pass-grid label{
+
+    font-size:13px;
+
+    color: var(--gris);
+
+    font-weight:600;
+}
+
+/* Inputs */
+.perfil-grid input,
+.pass-grid input{
+
+    width:100%;
+
+    padding:9px 12px;
+
+    border:1.5px solid var(--gris-claro);
+
+    border-radius:8px;
+}
+
+/* Focus */
+.perfil-grid input:focus,
+.pass-grid input:focus{
+
+    outline:none;
+
+    border-color: var(--verde-medio);
+}
+
+/* ================= CAMBIO DE CONTRASEÑA ================= */
+
+/* Separador */
+.pass-seccion{
+    border-top:1px solid var(--gris-claro);
+    padding-top:16px;
+}
+
+/* Campos de contraseña */
+.pass-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:16px;
+}
+
+/* Botón guardar */
+.btn-guardar-perfil{
+
+    background: var(--verde-medio);
+
+    color:white;
+
+    border:none;
+
+    padding:10px 24px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.btn-guardar-perfil:hover{
+    background:#0a7d42;
+}
+
+/* ================= SIDEBAR ================= */
+
+/* Botón para abrir/cerrar menú */
+.btn-toggle-sidebar{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+/* Barra lateral */
+.sidebar-recolector{
+
+    width:220px;
+
+    background: var(--verde-oscuro);
+
+    color:white;
+
+    padding:24px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    min-height:calc(100vh - 52px);
+
+    transition: width 0.3s, padding 0.3s;
+}
+
+/* Título */
+.sidebar-recolector h2{
+    color:white;
+}
+
+/* Enlaces del menú */
+.sidebar-recolector .menu-link{
+
+    display:block;
+
+    padding:10px 12px;
+
+    background:rgba(255,255,255,0.12);
+
+    color:white;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    transition:background 0.2s;
+}
+
+/* Opción activa o hover */
+.sidebar-recolector .menu-link.activo,
+.sidebar-recolector .menu-link:hover{
+
+    background: var(--verde-claro);
+
+    color: var(--verde-oscuro);
+}

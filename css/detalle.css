@@ -1,0 +1,522 @@
+/* Importa las fuentes utilizadas en todo el sistema */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= VARIABLES GLOBALES ================= */
+
+/* Variables CSS para reutilizar colores */
+:root {
+  --verde-oscuro: #093a27;
+  --verde-medio:  #0b6b39;
+  --verde-claro:  #5fe254;
+  --fondo:        #f0f2f0;
+  --blanco:       #ffffff;
+  --texto:        #1a1a1a;
+  --gris:         #6b7280;
+  --gris-claro:   #e5e7eb;
+}
+
+/* Reinicio general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Configuración principal de la página */
+body {
+  background-color: var(--fondo);
+  font-family: 'Quicksand', sans-serif;
+  color: var(--texto);
+}
+
+/* ================= HERO DEL REPORTE ================= */
+
+/* Encabezado principal del reporte */
+.detalle-hero {
+  background: linear-gradient(
+      135deg,
+      var(--verde-oscuro) 0%,
+      var(--verde-medio) 100%
+  );
+
+  padding: 32px 24px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Círculo decorativo de fondo */
+.detalle-hero::before {
+  content: '';
+  position: absolute;
+
+  top: -40px;
+  right: -40px;
+
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+
+  background: rgba(95,226,84,0.08);
+}
+
+/* Contenedor interno */
+.detalle-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Título principal */
+.detalle-hero h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* ================= BADGES ================= */
+
+/* Etiquetas de estado */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+/* Estados del reporte */
+.badge-pendiente  { background:#fef3c7; color:#92400e; }
+.badge-aceptado   { background:#d1fae5; color:#065f46; }
+.badge-en-proceso { background:#dbeafe; color:#1e40af; }
+.badge-atendido   { background:#ede9fe; color:#5b21b6; }
+.badge-rechazado  { background:#fee2e2; color:#991b1b; }
+.badge-asignado   { background:#ccfbf1; color:#134e4a; }
+
+/* ================= CONTENEDOR PRINCIPAL ================= */
+
+#contenido-principal {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+#seccion-detalle-reporte {
+  background: transparent;
+  max-width: 100%;
+}
+
+.detalle-encabezado {
+  display: none;
+}
+
+/* ================= GRID PRINCIPAL ================= */
+
+/* Divide la pantalla en dos columnas */
+.detalle-contenido {
+  display: grid;
+
+  grid-template-columns:
+      1fr
+      300px;
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+/* Columna izquierda */
+.detalle-izquierda {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ================= FOTOGRAFIAS ================= */
+
+/* Contenedor de imágenes */
+.detalle-foto {
+  border-radius: 12px;
+  overflow: hidden;
+
+  background: #e8e8e8;
+
+  border: 1px solid var(--gris-claro);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Imagen principal */
+.detalle-foto > img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Miniaturas */
+.detalle-foto-miniaturas {
+  display: flex;
+  gap: 2px;
+}
+
+/* Imágenes pequeñas */
+.detalle-foto-miniaturas img {
+  flex: 1;
+  height: 110px;
+  object-fit: cover;
+}
+
+/* ================= TABLA DE INFORMACION ================= */
+
+/* Tarjeta de información */
+.detalle-info {
+  background: var(--blanco);
+
+  border-radius: 12px;
+
+  border: 1px solid var(--gris-claro);
+
+  overflow: hidden;
+}
+
+/* Tabla */
+.tabla-info {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Filas */
+.tabla-info tr {
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+/* Efecto hover */
+.tabla-info tr:hover {
+  background: #f9fafb;
+}
+
+/* Encabezados */
+.tabla-info th {
+  padding: 11px 16px;
+
+  color: var(--verde-medio);
+
+  font-weight: 600;
+
+  width: 42%;
+
+  text-align: left;
+
+  text-transform: uppercase;
+}
+
+/* Datos */
+.tabla-info td {
+  padding: 11px 16px;
+  color: var(--texto);
+}
+
+/* ================= DESCRIPCION ================= */
+
+/* Caja de descripción */
+.detalle-descripcion {
+  background: white;
+
+  border-left: 4px solid var(--verde-claro);
+
+  border-radius: 0 12px 12px 0;
+
+  padding: 16px 18px;
+}
+
+/* Título */
+.detalle-descripcion h3 {
+  color: var(--verde-medio);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* Texto */
+.detalle-descripcion p {
+  line-height: 1.6;
+}
+
+/* ================= COLUMNA DERECHA ================= */
+
+/* Panel lateral */
+.detalle-derecha {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  position: sticky;
+
+  top: 72px;
+}
+
+/* ================= MAPA ================= */
+
+/* Mapa Leaflet o Google Maps */
+.mapa-detalle {
+  height: 200px !important;
+
+  border-radius: 12px !important;
+
+  border: 1px solid var(--gris-claro) !important;
+
+  overflow: hidden;
+}
+
+/* ================= BOTON DESCARGAR ================= */
+
+.btn-descargar-reporte {
+  width: 100%;
+
+  padding: 11px 16px;
+
+  background-color: var(--verde-medio);
+
+  color: white;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* Hover */
+.btn-descargar-reporte:hover {
+  background-color: #0a7d42;
+}
+
+/* ================= BOTONES GENERALES ================= */
+
+.acciones-generales {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Botón base */
+.boton {
+  display: block;
+
+  text-align: center;
+
+  border-radius: 8px;
+
+  padding: 10px 16px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+/* Botón secundario */
+.boton-secundario {
+  border: 1.5px solid var(--gris-claro);
+  background: white;
+}
+
+/* Hover secundario */
+.boton-secundario:hover {
+  border-color: var(--verde-medio);
+  color: var(--verde-medio);
+}
+
+/* Botón principal */
+.boton-primario {
+  background-color: var(--verde-oscuro);
+  color: white;
+}
+
+/* Hover principal */
+.boton-primario:hover {
+  background-color: #0a5236;
+}
+
+/* ================= PANEL RECOLECTOR ================= */
+
+.acciones-recolector {
+  background: white;
+
+  border: 1px solid var(--gris-claro);
+
+  border-radius: 12px;
+
+  padding: 14px;
+}
+
+/* ================= FORMULARIO ADMIN ================= */
+
+#edicion-admin {
+  background: white;
+
+  border: 1px solid var(--gris-claro);
+
+  border-radius: 12px;
+
+  padding: 24px;
+
+  margin-top: 20px;
+}
+
+/* Título del formulario */
+#edicion-admin h3 {
+  color: var(--verde-oscuro);
+
+  margin-bottom: 20px;
+
+  border-bottom: 2px solid var(--verde-claro);
+}
+
+/* Campos */
+.campo {
+  margin-bottom: 16px;
+}
+
+/* Etiquetas */
+.campo label {
+  display: block;
+
+  color: var(--verde-medio);
+
+  margin-bottom: 6px;
+
+  text-transform: uppercase;
+}
+
+/* Inputs, selects y textareas */
+.campo select,
+.campo textarea,
+.campo input[type="text"] {
+
+  width: 100%;
+
+  padding: 9px 12px;
+
+  border: 1.5px solid var(--gris-claro);
+
+  border-radius: 8px;
+}
+
+/* Cuando se selecciona un campo */
+.campo select:focus,
+.campo textarea:focus,
+.campo input:focus {
+
+  outline: none;
+
+  border-color: var(--verde-medio);
+}
+
+/* Oculta la navegación */
+#ruta-navegacion {
+  display: none;
+}
+
+/* ================= MODAL ================= */
+
+/* Fondo oscuro */
+.modal-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,.5);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ventana modal */
+.modal {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 28px;
+
+  width: 340px;
+}
+
+/* ================= NOTIFICACION ================= */
+
+/* Mensaje flotante */
+.notificacion {
+  position: fixed;
+
+  bottom: 24px;
+  right: 24px;
+
+  background: var(--verde-oscuro);
+
+  color: white;
+
+  padding: 12px 18px;
+
+  border-radius: 8px;
+
+  display: none;
+}
+
+/* Mostrar notificación */
+.notificacion.visible {
+  display: block;
+}
+
+/* ================= SLIDER ================= */
+
+/* Barra deslizante */
+.slider {
+  width: 100%;
+  height: 6px;
+
+  background: var(--gris-claro);
+
+  border-radius: 3px;
+}
+
+/* Círculo del slider */
+.slider::-webkit-slider-thumb {
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: var(--verde-medio);
+
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para móviles */
+@media (max-width:720px) {
+
+  .detalle-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .detalle-derecha {
+    position: static;
+  }
+
+  .detalle-hero h2 {
+    font-size: 19px;
+  }
+}

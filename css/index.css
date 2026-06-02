@@ -1,0 +1,407 @@
+/* Importa las fuentes Quicksand y Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ================= HERO PRINCIPAL ================= */
+
+/* Sección principal de bienvenida */
+.hero-section {
+
+    /* Fondo verde */
+    background-color:#89EE64;
+
+    background-size:cover;
+    background-position:center;
+
+    padding:60px 20px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* Contenedor principal del hero */
+.hero-container {
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+}
+
+/* ================= CONTENIDO IZQUIERDO ================= */
+
+/* Contenedor del logo y texto */
+.hero-content {
+
+    flex:1;
+
+    min-width:300px;
+}
+
+/* Logo principal */
+.hero-logo {
+
+    width:150px;
+
+    height:auto;
+
+    display:block;
+
+    margin-bottom:20px;
+
+    /* Convierte la imagen a color negro */
+    filter:brightness(0) invert(0.0);
+}
+
+/* Título principal */
+.hero-title {
+
+    font-size:2.5rem;
+
+    font-weight:700;
+
+    color:#093a27;
+
+    line-height:1.2;
+
+    margin-bottom:30px;
+}
+
+/* ================= IMAGEN DERECHA ================= */
+
+/* Contenedor de imagen */
+.hero-image {
+
+    flex:1;
+
+    min-width:300px;
+
+    text-align:center;
+}
+
+/* Imagen principal */
+.hero-image img {
+
+    max-width:100%;
+
+    height:auto;
+
+    border-radius:10px;
+}
+
+/* ================= IMPORTANCIA DEL RECICLAJE ================= */
+
+/* Sección informativa */
+.importance-section {
+
+    padding:80px 20px;
+
+    background-color:white;
+}
+
+/* Contenedor principal */
+.importance-container {
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    flex-wrap:wrap;
+}
+
+/* Imagen de la sección */
+.importance-image {
+
+    flex:1;
+
+    min-width:300px;
+}
+
+.importance-image img {
+
+    width:100%;
+
+    height:auto;
+
+    border-radius:15px;
+
+    object-fit:cover;
+}
+
+/* Texto informativo */
+.importance-text {
+
+    flex:1;
+
+    min-width:300px;
+}
+
+/* Título */
+.importance-title {
+
+    font-size:2.2rem;
+
+    color:#093a27;
+
+    margin-bottom:20px;
+}
+
+/* Subtítulo */
+.importance-subtitle {
+
+    font-size:1.3rem;
+
+    font-weight:bold;
+
+    color:#1a2f1f;
+
+    margin-bottom:15px;
+}
+
+/* Descripción */
+.importance-description {
+
+    font-size:1rem;
+
+    color:#444;
+
+    line-height:1.6;
+}
+
+/* ================= SOBRE NOSOTROS ================= */
+
+/* Sección About Us */
+.about-section {
+
+    background-color:#093a27;
+
+    padding:80px 20px;
+
+    color:white;
+
+    position:relative;
+}
+
+/* Contenedor principal */
+.about-container {
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:50px;
+
+    flex-wrap:wrap;
+}
+
+/* Texto */
+.about-text {
+
+    flex:1;
+
+    min-width:300px;
+}
+
+/* Título */
+.about-title {
+
+    font-size:2.2rem;
+
+    margin-bottom:20px;
+
+    position:relative;
+}
+
+/* Descripción */
+.about-description {
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    color:#e0e0e0;
+}
+
+/* Imagen */
+.about-image {
+
+    flex:1;
+
+    min-width:300px;
+
+    text-align:center;
+}
+
+.about-image img {
+
+    max-width:100%;
+
+    height:auto;
+
+    border-radius:15px;
+}
+
+/* ================= EMPRESAS RECOLECTORAS ================= */
+
+/* Sección para empresas o recolectores */
+.company-section {
+
+    background-color:#4ade80;
+
+    padding:80px 20px;
+
+    position:relative;
+}
+
+/* Contenedor principal */
+.company-container {
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+}
+
+/* Texto */
+.company-text {
+
+    flex:1;
+
+    min-width:300px;
+
+    color:#093a27;
+}
+
+/* Título */
+.company-title {
+
+    font-size:2.2rem;
+
+    margin-bottom:20px;
+}
+
+/* Descripción */
+.company-description {
+
+    font-size:1.1rem;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+}
+
+/* Botón de registro */
+.company-btn {
+
+    background-color:#093a27;
+
+    color:white;
+
+    padding:15px 40px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    font-size:1rem;
+
+    display:inline-block;
+
+    transition:all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.company-btn:hover {
+
+    background-color:#1a5a3d;
+
+    transform:translateY(-2px);
+}
+
+/* Imagen */
+.company-image {
+
+    flex:1;
+
+    min-width:300px;
+
+    text-align:center;
+}
+
+.company-image img {
+
+    max-width:100%;
+
+    height:auto;
+
+    border-radius:15px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Adaptación para tablets y celulares */
+@media (max-width:768px) {
+
+    /* Reduce tamaño del título principal */
+    .hero-title {
+        font-size:1.8rem;
+    }
+
+    /* Coloca los elementos uno debajo del otro */
+    .importance-container,
+    .about-container,
+    .company-container {
+
+        flex-direction:column;
+    }
+
+    /* Reordena el contenido del hero */
+    .hero-content {
+
+        text-align:center;
+
+        order:2;
+    }
+
+    /* La imagen aparece primero */
+    .hero-image {
+
+        order:1;
+    }
+
+    /* Centra el logo */
+    .hero-logo {
+
+        margin:0 auto 20px auto;
+    }
+}
